@@ -5,10 +5,11 @@
   --font-family-expressive: 'ABC Otto', 'Nunito Sans', arial, Sans-Serif;
   --text-default: var(--colour-greyscale-900);
 
-  --text-base-size: 16px;
+  --text-base-size: 16px; /* stylelint-disable-line unit-allowed-list */
   --text-base-line-height: 1.38;
   --text-bottom-margin: 1em;
 
+  /* stylelint-disable-line unit-allowed-list */
   /* values are so small pixel values are used for precision */
   --letter-spacing-productive: 0.2px;
   --letter-spacing-productive-condensed: -0.1px;
@@ -18,6 +19,7 @@
   --letter-spacing-expressive-condensed: -1.2px;
   --letter-spacing-expressive-ultra-condensed: -1.3px;
   --letter-spacing-expressive-expanded: 0;
+  /* stylelint-enable unit-allowed-list */
 
   --font-weight-100: 100;
   --font-weight-300: 300;
