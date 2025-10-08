@@ -8,13 +8,13 @@
     "annotation-no-unknown": [
       true,
       {
-        "ignoreAnnotations": ["default"],
+        "ignoreAnnotations": ["default"]
       }
     ],
     "at-rule-no-unknown": null,
     "media-query-no-invalid": null,
     "no-descending-specificity": null,
-    "unit-allowed-list": ["rem", "em", "%", "ms", "s", "deg", "vh", "vw", "fr"],
+    "unit-allowed-list": ["rem", "em", "%", "ms", "s", "deg", "vh", "vw", "fr", "px"],
     "declaration-empty-line-before": [
       "always",
       {
@@ -26,13 +26,13 @@
     "rule-empty-line-before": [
       "always",
       {
-        "ignore": ["after-comment", "first-nested"],
+        "ignore": ["after-comment", "first-nested"]
       }
     ],
     "function-no-unknown": [
       true,
       {
-        "ignoreFunctions": ["space", "map-get", "percentage", "/math.*/"],
+        "ignoreFunctions": ["space", "map-get", "percentage", "/math.*/"]
       }
     ]
   }

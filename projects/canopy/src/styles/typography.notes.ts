@@ -3,8 +3,8 @@ Provides common typographic styles for native elements with additional utility c
 
 Canopy consists of two fonts:
 
-* **Roboto**: Productive font, for general use in self serve apps (default)
-* **Lyon**: Expressive font, for headings in promo material (applied by class modifier)
+* **Nunito Sans**: Productive font, for general use in self serve apps (default)
+* **Otto ABC**: Expressive font, for headings in promo material (applied by class modifier)
 
 > **IMPORTANT** - Lyon font files are not included in the Canopy package, you have to serve it yourself, see below for details.
 
@@ -37,7 +37,7 @@ The typography styles will provide styling for all native text elements e.g. \`\
 
 * Alternatively, it is possible to just use the typography classes if more control is required over the styling of the native elements by importing canopy-classes.css instead of canopy.css.
 
-By default the font used is Roboto.
+By default the font used is Nunito Sans.
 
 In addition to the native styling, the following utility classes are exposed, allowing you to change the font size and weight where required.
 
@@ -82,13 +82,13 @@ for example making an h1 look like an h3:
 ~~~
 <br />
 
-### Using the Lyon font
+### Using the Otto ABC font
 
-Lyon can be applied using the modifier class: \`\`lg-font--expressive\`\`. For example:
+Otto ABC can be applied using the modifier class: \`\`lg-font--expressive\`\`. For example:
 
 ~~~html
 
-<h1 class="lg-font--expressive">Heading in Lyon</h1>
+<h1 class="lg-font--expressive">Heading in Otto ABC</h1>
 
 ~~~
 
@@ -96,7 +96,7 @@ It can also be used in addition to the above utility classes:
 
 ~~~html
 
-<p class="lg-font-size-5 lg-font--expressive">Paragraph in Lyon and font size 5</p>
+<p class="lg-font-size-5 lg-font--expressive">Paragraph in Otto ABC and font size 5</p>
 
 ~~~
 `;
