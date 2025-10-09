@@ -1,6 +1,16 @@
-import { Meta, Markdown, Story } from '@storybook/addon-docs/blocks';
+import { Markdown, Meta, Story } from '@storybook/addon-docs/blocks';
 import Feedback from '../../common/feedback.md';
 import * as TypographyStories from './typography.stories.ts';
+import {
+  convertLineHeightToPx,
+  convertToPxAndRem,
+  fontFamilyVars,
+  fontSizeVars,
+  fontWeightVars,
+  lineHeightVars,
+  resolveVarValue,
+  typographyVariables,
+} from './typography-utils.ts';
 
 <Meta of={TypographyStories} />
 
@@ -58,50 +68,117 @@ The basis for the expressive scale is Otto ABC, which is our brand typeface. It 
 
 ### Typography Variables
 
-#### Font Families and Weights
+#### Font Families
 
-| Name | Value | Description |
-|------|-------|-------------|
-| `--font-family-productive` | `'Nunito Sans', arial, Sans-Serif` | Productive font family |
-| `--font-family-expressive` | `'ABC Otto', arial, Sans-Serif` | Expressive font family |
-| `--font-weight-300` | 300 | Light |
-| `--font-weight-400` | 400 | Regular |
-| `--font-weight-500` | 500 | Medium |
-| `--font-weight-700` | 700 | Bold |
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Value</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    {fontFamilyVars.map(({ name, value, description }) => (
+      <tr key={name}>
+        <td><code>{name}</code></td>
+        <td><code>{value}</code></td>
+        <td>{description}</td>
+      </tr>
+    ))}
+  </tbody>
+</table>
+
+#### Font Weights
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Value</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    {fontWeightVars.map(({ name, value, description }) => (
+      <tr key={name}>
+        <td><code>{name}</code></td>
+        <td>{value}</td>
+        <td>{description}</td>
+      </tr>
+    ))}
+  </tbody>
+</table>
 
 #### Font Sizes
 
-| Name | SM-MD || LG upwards ||
-|------|-------|-------|--------|--------|
-|  | px | Rem | px | Rem |
-| `--font-size-0-6` | 10 | 0.625 | 10 | 0.625 |
-| `--font-size-0-8` | 12 | 0.75 | 12 | 0.75 |
-| `--font-size-1` | 16 | 1 | 16 | 1 |
-| `--font-size-2` | 20 | 1.25 | 20 | 1.25 |
-| `--font-size-3` | 24 | 1.5 | 24 | 1.5 |
-| `--font-size-4` | 28 | 1.75 | 32 | 2 |
-| `--font-size-5` | 32 | 2 | 40 | 2.5 |
-| `--font-size-6` | 40 | 2.5 | 48 | 3 |
-| `--font-size-7` | 48 | 3 | 62 | 3.875 |
-| `--font-size-8` | 56 | 3.5 | 76 | 4.75 |
-| `--font-size-9` | 68 | 4.25 | 96 | 6 |
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th colSpan={2}>SM-MD</th>
+      <th colSpan={2}>LG upwards</th>
+    </tr>
+    <tr>
+      <th></th>
+      <th>px</th>
+      <th>Rem</th>
+      <th>px</th>
+      <th>Rem</th>
+    </tr>
+  </thead>
+  <tbody>
+    {fontSizeVars.map(([name, value]) => {
+      const { px, rem } = convertToPxAndRem(value, typographyVariables);
+      return (
+        <tr key={name}>
+          <td><code>{name}</code></td>
+          <td>{px}</td>
+          <td>{rem}</td>
+          <td>{px}</td>
+          <td>{rem}</td>
+        </tr>
+      );
+    })}
+  </tbody>
+</table>
 
 #### Line Heights
 
-| Name | SM-MD || LG upwards ||
-|------|-------|-------|--------|--------|
-|  | px | Rem | px | Rem |
-| `--line-height-0-6` | 14 | 1.4 | 14 | 1.4 |
-| `--line-height-0-8` | 17 | 1.417 | 17 | 1.417 |
-| `--line-height-1` | 22 | 1.38 | 22 | 1.38 |
-| `--line-height-2` | 28 | 1.4 | 28 | 1.4 |
-| `--line-height-3` | 34 | 1.42 | 34 | 1.42 |
-| `--line-height-4` | 36 | 1.29 | 42 | 1.3 |
-| `--line-height-5` | 38 | 1.19 | 48 | 1.2 |
-| `--line-height-6` | 48 | 1.1 | 58 | 1.21 |
-| `--line-height-7` | 58 | 1.21 | 74 | 1.1 |
-| `--line-height-8` | 67 | 1.2 | 91 | 1.2 |
-| `--line-height-9` | 82 | 1.21 | 115 | 1.2 |
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th colSpan={2}>SM-MD</th>
+      <th colSpan={2}>LG upwards</th>
+    </tr>
+    <tr>
+      <th></th>
+      <th>px</th>
+      <th>Rem</th>
+      <th>px</th>
+      <th>Rem</th>
+    </tr>
+  </thead>
+  <tbody>
+    {lineHeightVars.map(([name, value]) => {
+      const resolved = resolveVarValue(value, typographyVariables);
+      const remValue = parseFloat(resolved);
+      const fontSizeKey = name.replace('--line-height-', '--font-size-');
+      const fontSize = typographyVariables[fontSizeKey] || '1rem';
+      const pxValue = convertLineHeightToPx(value, fontSize, typographyVariables);
+      return (
+        <tr key={name}>
+          <td><code>{name}</code></td>
+          <td>{pxValue}</td>
+          <td>{isNaN(remValue) ? 'N/A' : remValue}</td>
+          <td>{pxValue}</td>
+          <td>{isNaN(remValue) ? 'N/A' : remValue}</td>
+        </tr>
+      );
+    })}
+  </tbody>
+</table>
 
 #### Mixin
 

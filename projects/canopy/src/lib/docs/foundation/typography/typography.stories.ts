@@ -1,103 +1,13 @@
 import { Component, Input } from '@angular/core';
 import { Meta, moduleMetadata } from '@storybook/angular';
 
-const pangram = '--font-size';
+import typographyVariables from '../../../../../storybook/css-variables/typography';
 
-const productiveFontSizes = [
-  {
-    size: '0-6',
-    weights: [ '400', '500', '700' ],
-    px: { sm: '10', lg: '10' },
-    rem: { sm: '0.625', lg: '0.625' },
-  },
-  {
-    size: '0-8',
-    weights: [ '400', '500', '700' ],
-    px: { sm: '12', lg: '12' },
-    rem: { sm: '0.75', lg: '0.75' },
-  },
-  {
-    size: '1',
-    weights: [ '400', '500', '700' ],
-    px: { sm: '16', lg: '16' },
-    rem: { sm: '1', lg: '1' },
-  },
-  {
-    size: '2',
-    weights: [ '400', '500', '700' ],
-    px: { sm: '20', lg: '20' },
-    rem: { sm: '1.25', lg: '1.25' },
-  },
-  {
-    size: '3',
-    weights: [ '400', '500', '700' ],
-    px: { sm: '24', lg: '24' },
-    rem: { sm: '1.5', lg: '1.5' },
-  },
-  {
-    size: '4',
-    weights: [ '300', '400', '500', '700' ],
-    px: { sm: '28', lg: '32' },
-    rem: { sm: '1.75', lg: '2' },
-  },
-  {
-    size: '5',
-    weights: [ '300', '400', '500' ],
-    px: { sm: '32', lg: '40' },
-    rem: { sm: '2', lg: '2.5' },
-  },
-  {
-    size: '6',
-    weights: [ '300', '400', '500' ],
-    px: { sm: '44', lg: '48' },
-    rem: { sm: '2.75', lg: '3' },
-  },
-  {
-    size: '7',
-    weights: [ '300', '400', '500', '700' ],
-    px: { sm: '48', lg: '68' },
-    rem: { sm: '3', lg: '4.875' },
-  },
-];
+import { getProductiveFontSizes, getExpressiveFontSizes } from './typography-utils';
 
-const expressiveFontSizes = [
-  {
-    size: '4',
-    weights: [ '300', '400', '500', '700' ],
-    px: { sm: '28', lg: '32' },
-    rem: { sm: '1.75', lg: '2' },
-  },
-  {
-    size: '5',
-    weights: [ '300', '400', '500', '700' ],
-    px: { sm: '36', lg: '40' },
-    rem: { sm: '2.25', lg: '2.5' },
-  },
-  {
-    size: '6',
-    weights: [ '300', '400', '500', '700' ],
-    px: { sm: '44', lg: '48' },
-    rem: { sm: '2.75', lg: '3' },
-  },
-  {
-    size: '7',
-    weights: [ '300', '400', '500', '700' ],
-    px: { sm: '52', lg: '68' },
-    rem: { sm: '3.25', lg: '4.875' },
-  },
-  {
-    size: '8',
-    weights: [ '300', '400', '500', '700' ],
-    px: { sm: '52', lg: '76' },
-    rem: { sm: '3.25', lg: '4.75' },
-  },
-  {
-    size: '9',
-    weights: [ '300', '400', '500', '700' ],
-    px: { sm: '52', lg: '96' },
-    rem: { sm: '4.25', lg: '6' },
-  },
-];
+// Generate font sizes dynamically from typography variables
+const productiveFontSizes = getProductiveFontSizes(typographyVariables);
+const expressiveFontSizes = getExpressiveFontSizes(typographyVariables);
 
 @Component({
   selector: 'lg-display-font-size',
@@ -121,6 +31,7 @@ class LgDisplayFontSizeComponent {
   @Input() fontClass: string;
   @Input() showSizeInfo = false;
 }
+
 @Component({
   selector: 'lg-font-sizes-panel',
   template: `
@@ -131,7 +42,7 @@ class LgDisplayFontSizeComponent {
         <ng-container *ngFor="let fontGroup of productiveFontGroups">
           <ng-container *ngFor="let weight of fontGroup.weights; let last = last">
             <lg-display-font-size
-              [textString]="textString + '-' + fontGroup.size + '/' + weight"
+              [textString]="getFontLabel(fontGroup.size, weight)"
               [pxValues]="fontGroup.px"
               [remValues]="fontGroup.rem"
               [fontClass]="'lg-font-size-' + fontGroup.size + '--' + weight"
@@ -142,7 +53,7 @@ class LgDisplayFontSizeComponent {
             <!-- Add underlined version of the last weight in each group -->
             <lg-display-font-size
               *ngIf="last && isLastWeightInGroup(fontGroup, weight)"
-              [textString]="textString + '-' + fontGroup.size + '/' + 'underline'"
+              [textString]="getFontLabel(fontGroup.size, weight, true)"
               [pxValues]="fontGroup.px"
               [remValues]="fontGroup.rem"
               [fontClass]="'lg-font-size-' + fontGroup.size + '--400' + ' lg-underline'"
@@ -166,7 +77,7 @@ class LgDisplayFontSizeComponent {
             *ngFor="let weight of fontGroup.weights; let i = index; let last = last"
           >
             <lg-display-font-size
-              [textString]="textString + '-' + fontGroup.size + '/' + weight"
+              [textString]="getFontLabel(fontGroup.size, weight)"
               [pxValues]="fontGroup.px"
               [remValues]="fontGroup.rem"
               [fontClass]="
@@ -184,7 +95,7 @@ class LgDisplayFontSizeComponent {
             <!-- Add underlined version of the last weight in each group -->
             <lg-display-font-size
               *ngIf="i === fontGroup.weights.length - 1"
-              [textString]="textString + '-' + fontGroup.size + '/' + 'underline'"
+              [textString]="getFontLabel(fontGroup.size, weight, true)"
               [pxValues]="fontGroup.px"
               [remValues]="fontGroup.rem"
               [fontClass]="
@@ -225,12 +136,21 @@ class LgDisplayFontSizeComponent {
 })
 class LgFontPanelComponent {
   @Input() isProductiveFont: boolean;
-  textString = pangram;
   productiveFontGroups = productiveFontSizes;
   expressiveFontGroups = expressiveFontSizes;
 
   isLastWeightInGroup(fontGroup: any, weight: string): boolean {
     return fontGroup.weights[fontGroup.weights.length - 1] === weight;
+  }
+
+  getFontLabel(size: string, weight: string, isUnderline = false): string {
+    const cssVarName = `--font-size-${size}`;
+
+    if (isUnderline) {
+      return cssVarName;
+    }
+
+    return `${cssVarName}/${weight}`;
   }
 }
 
