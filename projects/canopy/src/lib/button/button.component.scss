@@ -231,7 +231,7 @@ $priorities: 'primary', 'secondary' !default;
 
 .lg-input-field__suffix .lg-btn {
   border-radius: 0;
-  padding: var(--btn-icon-only-padding--sm);
+  padding: calc(var(--space-1) - var(--border-width));
   min-height: 0;
   min-width: 0;
 
