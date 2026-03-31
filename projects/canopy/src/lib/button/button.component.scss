@@ -64,7 +64,7 @@
     }
   }
 
-  &:is(a) .lg-icon {
+  &:is(a):not(&--icon-left) .lg-icon {
     margin-right: 0;
   }
 
