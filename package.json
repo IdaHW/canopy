@@ -19,7 +19,6 @@
     "generate:icon-loader": "node scripts/generate-icon-loader.js",
     "generate:css-variables": "node scripts/generate-css-variables.js",
     "// ----- TEST": "",
-    "e2e": "ng e2e",
     "test": "jest",
     "test:ci": "jest --ci --workers=2",
     "test:ws": "npx jest --config=.github/workflow-scripts/jest.config.js --coverage",
@@ -40,11 +39,12 @@
     "prepare": "husky"
   },
   "engines": {
-    "node": ">=20.9.0"
+    "node": ">=22.14.0"
   },
   "private": false,
   "overrides": {
-    "qs": "6.15.0"
+    "qs": "6.15.0",
+    "vite": "7.3.2"
   },
   "dependencies": {
     "@angular/animations": "20.3.18",
@@ -57,7 +57,6 @@
     "@angular/platform-browser-dynamic": "20.3.18",
     "@angular/router": "20.3.18",
     "@legal-and-general/canopy-design-tokens": "^1.14.0",
-    "core-js": "3.49.0",
     "date-fns": "4.1.0",
     "rxjs": "7.8.2",
     "tslib": "2.8.1",
@@ -80,7 +79,7 @@
     "@commitlint/prompt": "20.5.0",
     "@compodoc/compodoc": "1.2.1",
     "@percy/cli": "1.31.10",
-    "@percy/storybook": "9.1.0",
+    "@percy/storybook": "10.0.0",
     "@semantic-release/github": "12.0.6",
     "@semantic-release/npm": "13.1.5",
     "@storybook/addon-a11y": "10.3.3",
@@ -108,7 +107,6 @@
     "fs-extra": "11.3.4",
     "globals": "17.4.0",
     "husky": "9.1.7",
-    "install": "0.13.0",
     "jest": "30.3.0",
     "jest-marbles": "3.1.1",
     "jest-preset-angular": "16.1.1",
@@ -121,15 +119,13 @@
     "postcss": "8.5.8",
     "postcss-scss": "4.0.9",
     "prettier": "3.8.1",
-    "pretty-quick": "4.2.2",
-    "protractor": "7.0.0",
     "remark-gfm": "4.0.1",
     "sass": "1.98.0",
     "semantic-release": "25.0.3",
     "storybook": "10.3.3",
     "storybook-addon-tag-badges": "3.1.0",
-    "stylelint": "16.26.1",
-    "stylelint-config-recommended": "17.0.0",
+    "stylelint": "17.6.0",
+    "stylelint-config-recommended": "18.0.0",
     "stylelint-selector-bem-pattern": "4.0.1",
     "svg-to-ts": "12.0.0",
     "svgo": "4.0.1",
