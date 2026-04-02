@@ -36,7 +36,7 @@ $columns: 12;
   margin-right: auto;
   padding-right: var(--grid-margin);
   padding-left: var(--grid-margin);
-  max-width: calc(var(--page-max-width) + (2 * var(--grid-margin)));
+  max-width: calc(var(--page-max-width) + (var(--grid-margin) * 2));
 }
 
 .lg-row {
