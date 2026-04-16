@@ -24,11 +24,6 @@ const validationTestId = 'test-validation-id';
 @Component({
   template: `
     <form (ngSubmit)="login()" [formGroup]="form" #testForm="ngForm">
-      @if (isControlInvalid(umbrella, testForm)) {
-        <lg-validation id="${validationTestId}">
-          You must agree to the terms and conditions
-        </lg-validation>
-      }
       <lg-toggle
         formControlName="umbrella"
         [value]="true"
@@ -38,6 +33,11 @@ const validationTestId = 'test-validation-id';
         [size]="size"
       >
         I will bring my Umbrella if it is raining {{ variant }}
+        @if (isControlInvalid(umbrella, testForm)) {
+          <lg-validation id="${validationTestId}">
+            You must agree to the terms and conditions
+          </lg-validation>
+        }
       </lg-toggle>
     </form>
   `,
@@ -78,11 +78,6 @@ class TestToggleComponent {
 @Component({
   template: `
     <form (ngSubmit)="login()" [formGroup]="form" #testForm="ngForm">
-      @if (isControlInvalid(umbrella, testForm)) {
-        <lg-validation id="${validationTestId}">
-          You must agree to the terms and conditions
-        </lg-validation>
-      }
       <lg-switch
         formControlName="umbrella"
         [value]="true"
@@ -90,6 +85,11 @@ class TestToggleComponent {
         (blur)="onBlur($event)"
       >
         I will bring my Umbrella if it is raining
+        @if (isControlInvalid(umbrella, testForm)) {
+          <lg-validation id="${validationTestId}">
+            You must agree to the terms and conditions
+          </lg-validation>
+        }
       </lg-switch>
     </form>
   `,
