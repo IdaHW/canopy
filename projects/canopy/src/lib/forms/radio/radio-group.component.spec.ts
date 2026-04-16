@@ -29,12 +29,12 @@ const hintTestId = 'test-hint-id';
       <lg-radio-group formControlName="color">
         Color
         <lg-hint id="${hintTestId}">Choose your favourite</lg-hint>
-        <lg-radio-button value="red">Red</lg-radio-button>
-        <lg-radio-button value="yellow">Yellow</lg-radio-button>
-        <lg-radio-button value="blue">Blue</lg-radio-button>
         @if (isControlInvalid(color, testForm)) {
           <lg-validation id="${validationTestId}"> Error </lg-validation>
         }
+        <lg-radio-button value="red">Red</lg-radio-button>
+        <lg-radio-button value="yellow">Yellow</lg-radio-button>
+        <lg-radio-button value="blue">Blue</lg-radio-button>
       </lg-radio-group>
     </form>
   `,
