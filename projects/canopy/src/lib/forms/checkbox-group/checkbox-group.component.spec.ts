@@ -29,12 +29,12 @@ const hintTestId = 'test-hint-id';
       <lg-filter-multiple-group formControlName="color">
         Color
         <lg-hint id="${hintTestId}">Choose your favourite</lg-hint>
-        <lg-toggle value="red">Red</lg-toggle>
-        <lg-toggle value="yellow">Yellow</lg-toggle>
-        <lg-toggle value="blue">Blue</lg-toggle>
         @if (isControlInvalid(color, testForm)) {
           <lg-validation id="${validationTestId}"> Error </lg-validation>
         }
+        <lg-toggle value="red">Red</lg-toggle>
+        <lg-toggle value="yellow">Yellow</lg-toggle>
+        <lg-toggle value="blue">Blue</lg-toggle>
       </lg-filter-multiple-group>
     </form>
   `,

@@ -68,7 +68,7 @@ export class LgRadioButtonComponent implements OnInit {
   @Input() id = `lg-radio-button-${++nextUniqueId}`;
   @Input() name: string;
   @Input() value: boolean | string;
-  @Input() size: RadioSize = 'sm';
+  @Input() size: RadioSize = 'lg';
   @Input() ariaDescribedBy: string;
 
   _stacked: RadioStackBreakpoint;

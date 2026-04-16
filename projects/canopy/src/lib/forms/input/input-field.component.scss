@@ -29,13 +29,7 @@
     }
   }
 
-  &__prefix {
-    margin-left: var(--suffix-margin);
-  }
-
   &__suffix {
-    margin-right: var(--suffix-margin);
-
     > .lg-btn {
       margin-bottom: 0;
       margin-top: 0;
@@ -50,30 +44,50 @@
   &__inputs {
     display: inline-flex;
     align-items: center;
-    background-color: var(--colour-greyscale-0);
-    border: solid var(--border-width) var(--border-color);
-    border-radius: var(--border-radius-sm);
+    padding: var(--text-input-common-padding-y) var(--text-input-common-padding-x);
+    border-radius: var(--text-input-common-border-radius);
+    border: var(--text-input-rest-border-width) solid var(--text-input-rest-border-colour);
+    background: var(--text-input-rest-background-colour);
 
     #{$block}--hover & {
-      border-color: var(--border-hover-color);
+      border-color: var(--text-input-hover-border-colour);
+    }
+
+    #{$block}--focus & {
+      color: var(--select-focus-colour);
+      background: var(--text-input-focus-background-colour);
+      box-shadow:
+        inset 0 0 0 var(--text-input-focus-border-width)
+          var(--text-input-focus-border-colour),
+        0 0 0 var(--text-input-rest-border-width)
+          var(--text-input-focus-background-colour);
+      border: var(--text-input-rest-border-width) solid
+        var(--text-input-focus-background-colour);
+      outline: 0;
+    }
+
+    #{$block}--disabled & {
+      color: var(--text-input-disabled-colour);
+      border: var(--text-input-disabled-border-width) solid
+        var(--text-input-disabled-border-colour);
+      background: var(--text-input-disabled-background-colour);
+      pointer-events: none;
     }
 
     #{$block}--error & {
-      border-color: var(--form-error-border-color);
+      color: var(--text-input-error-colour);
+      background: var(--text-input-error-background-colour);
+      box-shadow:
+        inset 0 0 0 var(--text-input-error-border-width)
+          var(--text-input-error-border-colour),
+        0 0 0 var(--text-input-rest-border-width)
+          var(--text-input-error-background-colour);
+      border: var(--text-input-rest-border-width) solid
+        var(--text-input-error-background-colour);
     }
 
     #{$block}--error#{$block}--hover#{$block}--focus & {
       color: inherit;
-    }
-
-    #{$block}--disabled & {
-      color: var(--disabled-color);
-      background-color: var(--background-disabled-color);
-      border-color: var(--border-disabled-color);
-    }
-
-    #{$block}--focus & {
-      @include mixins.lg-focus-outline;
     }
 
     #{$block}--block & {
@@ -92,11 +106,10 @@
   flex: 1 0 auto;
   display: block;
   border: none;
-  line-height: var(--input-line-height);
   margin: 0;
-  padding: var(--input-vertical-padding) var(--space-4);
   outline: 0;
   max-width: 100%;
+  background: none;
 
   &[type='number']::-webkit-inner-spin-button,
   &[type='number']::-webkit-outer-spin-button {
@@ -106,9 +119,5 @@
 
   &:-webkit-autofill {
     -webkit-background-clip: text;
-  }
-
-  &--error {
-    color: var(--form-error-color);
   }
 }

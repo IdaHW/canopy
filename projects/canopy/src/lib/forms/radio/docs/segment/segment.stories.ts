@@ -67,7 +67,6 @@ class ReactiveFormSegmentComponent {
 
 export default {
   title: 'Components/Forms/Segment/Examples',
-  tags: [ 'pending' ],
   component: LgRadioGroupComponent,
   decorators: [
     moduleMetadata({

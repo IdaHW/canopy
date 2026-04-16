@@ -49,7 +49,7 @@ export class LgRadioGroupComponent implements ControlValueAccessor, AfterContent
   private nextUniqueId = ++uniqueId;
   private _name = `lg-radio-group-${this.nextUniqueId}`;
   variant: RadioVariant;
-  _stack: RadioStackBreakpoint;
+  _stack: RadioStackBreakpoint = 'sm';
   _radios: QueryList<LgRadioButtonComponent>;
   _hintElement: LgHintComponent;
   _validationElement: LgValidationComponent;
@@ -163,7 +163,7 @@ export class LgRadioGroupComponent implements ControlValueAccessor, AfterContent
   }
 
   ngAfterContentInit(): void {
-    if (this.radios && this.stack) {
+    if (this.radios) {
       this.radios.toArray().forEach(radio => {
         radio.stacked = this.stack;
       });

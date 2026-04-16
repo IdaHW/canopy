@@ -194,7 +194,6 @@ class ReactiveFormComponent {
 
 export default {
   title: 'Components/Forms/Text input/Examples',
-  tags: [ 'pending' ],
   component: LgInputFieldComponent,
   decorators: [
     moduleMetadata({
@@ -352,16 +351,6 @@ setupInputStoryValues(WithTextSuffix, inputTemplate, {
   showTextSuffix: true,
   label: 'Amount',
   hint: null,
-});
-
-export const WithMultipleButtonSuffixes = {
-  name: 'With multiple buttons suffixes',
-  render: (args: LgInputFieldComponent) => createInputStory(args),
-};
-
-setupInputStoryValues(WithMultipleButtonSuffixes, inputTemplate, {
-  showButtonFirstSuffix: true,
-  showButtonSecondSuffix: true,
 });
 
 export const WithTextPrefix = {

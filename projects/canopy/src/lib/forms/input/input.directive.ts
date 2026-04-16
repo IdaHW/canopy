@@ -35,7 +35,7 @@ export class LgInputDirective {
   @Input() block = false;
 
   @Input()
-  @HostBinding('name')
+  @HostBinding('attr.name')
   name = `lg-input-${this.uniqueId}`;
 
   @Input()
@@ -43,7 +43,6 @@ export class LgInputDirective {
   id = `lg-input-${this.uniqueId}`;
 
   @Input()
-  @HostBinding('disabled')
   disabled = false;
 
   @Input()

@@ -59,7 +59,7 @@ export class LgToggleComponent implements ControlValueAccessor, OnInit {
   @Input() focus: boolean;
   @Input() ariaDescribedBy: string;
   @Input() variant: ToggleVariant = 'checkbox';
-  @Input() size: CheckboxSize = 'sm';
+  @Input() size: CheckboxSize = 'lg';
   @Input()
   _disabled = false;
   get disabled(): boolean {
