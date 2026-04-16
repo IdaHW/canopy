@@ -83,6 +83,7 @@
     min-width: auto;
     width: auto;
     display: inline-flex;
+    height: var(--button-common-labelled-min-height);
     padding: var(--button-common-icon-only-padding-y)
       var(--button-common-icon-only-padding-x);
 
@@ -227,16 +228,5 @@ $priorities: 'primary', 'secondary' !default;
     &:hover {
       box-shadow: none;
     }
-  }
-}
-
-.lg-input-field__suffix .lg-btn {
-  border-radius: 0;
-  padding: calc(var(--space-1) - var(--border-width));
-  min-height: 0;
-  min-width: 0;
-
-  &:hover {
-    border-radius: 0 !important;
   }
 }
