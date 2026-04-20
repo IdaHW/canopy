@@ -48,6 +48,8 @@
     border-radius: var(--text-input-common-border-radius);
     border: var(--text-input-rest-border-width) solid var(--text-input-rest-border-colour);
     background: var(--text-input-rest-background-colour);
+    min-height: var(--input-common-scale-xxl);
+    max-height: var(--input-common-scale-xxl);
 
     #{$block}--hover & {
       border-color: var(--text-input-hover-border-colour);
@@ -55,15 +57,11 @@
 
     #{$block}--focus & {
       color: var(--select-focus-colour);
+      border: var(--text-input-focus-border-width) solid
+        var(--text-input-focus-border-colour);
       background: var(--text-input-focus-background-colour);
-      box-shadow:
-        inset 0 0 0 var(--text-input-focus-border-width)
-          var(--text-input-focus-border-colour),
-        0 0 0 var(--text-input-rest-border-width)
-          var(--text-input-focus-background-colour);
-      border: var(--text-input-rest-border-width) solid
+      box-shadow: 0 0 0 var(--text-input-focus-border-width)
         var(--text-input-focus-background-colour);
-      outline: 0;
     }
 
     #{$block}--disabled & {
@@ -76,13 +74,10 @@
 
     #{$block}--error & {
       color: var(--text-input-error-colour);
+      border: var(--text-input-error-border-width) solid
+        var(--text-input-error-border-colour);
       background: var(--text-input-error-background-colour);
-      box-shadow:
-        inset 0 0 0 var(--text-input-error-border-width)
-          var(--text-input-error-border-colour),
-        0 0 0 var(--text-input-rest-border-width)
-          var(--text-input-error-background-colour);
-      border: var(--text-input-rest-border-width) solid
+      box-shadow: 0 0 0 var(--text-input-error-border-width)
         var(--text-input-error-background-colour);
     }
 

@@ -10,10 +10,14 @@ import { LgRadioGroupComponent } from '../../radio-group.component';
 import { RadioStackBreakpoint } from '../../radio.interface';
 import { LgRadioButtonComponent } from '../../radio-button.component';
 import { LgHintComponent } from '../../../hint';
+import { LgOptionalComponent } from '../../../optional';
 
 const segmentTemplate = `
 <lg-segment-group [inline]="inline" [focus]="focus" [stack]="stack" formControlName="color">
   {{ label }}
+  @if (optional) {
+    <lg-optional>(optional)</lg-optional>
+  }
   @if (hint) {
     <lg-hint>{{ hint }}</lg-hint>
   }
@@ -30,6 +34,7 @@ const segmentTemplate = `
   imports: [
     ReactiveFormsModule,
     LgHintComponent,
+    LgOptionalComponent,
     LgRadioGroupComponent,
     LgRadioButtonComponent,
   ],
@@ -39,6 +44,7 @@ class ReactiveFormSegmentComponent {
 
   @Input() label: string;
   @Input() hint: string;
+  @Input() optional: boolean;
   @Input() secondButtonLabel: string;
   @Input() stack: RadioStackBreakpoint;
   @Input() focus: boolean;
@@ -234,6 +240,7 @@ export const SegmentButtons = {
         [focus]="focus"
         [label]="label"
         [hint]="hint"
+        [optional]="optional"
         [secondButtonLabel]="secondButtonLabel"
         (segmentChange)="segmentChange($event)"
         (segmentBlur)="segmentBlur($event)">
@@ -246,6 +253,7 @@ export const SegmentButtons = {
     focus: false,
     label: 'Color',
     hint: 'Please select a color',
+    optional: false,
   },
   parameters: {
     docs: {

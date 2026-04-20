@@ -8,17 +8,21 @@ import { moduleMetadata } from '@storybook/angular';
 
 import { LgCheckboxGroupComponent } from '../../../checkbox-group';
 import { LgHintComponent } from '../../../hint';
+import { LgOptionalComponent } from '../../../optional';
 import { LgToggleComponent } from '../../toggle.component';
 
 const formTemplate = `
 <form [formGroup]="form">
   <lg-checkbox-group [inline]="inline" [focus]="focus" formControlName="colors">
     {{ label }}
+    @if (optional) {
+      <lg-optional>(optional)</lg-optional>
+    }
     @if (hint) {
       <lg-hint>{{ hint }}</lg-hint>
     }
-    <lg-toggle value="red" (blur)="checkboxBlur.emit($event)">Red</lg-toggle>
-    <lg-toggle value="yellow" (blur)="checkboxBlur.emit($event)">Yellow</lg-toggle>
+    <lg-toggle value="red" [size]="size" (blur)="checkboxBlur.emit($event)">Red</lg-toggle>
+    <lg-toggle value="yellow" [size]="size" (blur)="checkboxBlur.emit($event)">Yellow</lg-toggle>
   </lg-checkbox-group>
 </form>
 `;
@@ -30,6 +34,7 @@ const formTemplate = `
     ReactiveFormsModule,
     LgCheckboxGroupComponent,
     LgHintComponent,
+    LgOptionalComponent,
     LgToggleComponent,
   ],
 })
@@ -40,6 +45,8 @@ class ReactiveFormComponent {
   @Input() focus = false;
   @Input() label: string;
   @Input() hint: string;
+  @Input() optional: boolean;
+  @Input() size = 'lg';
   @Input()
   set disabled(isDisabled: boolean) {
     if (isDisabled === true) {
@@ -108,6 +115,21 @@ export default {
         defaultValue: {
           summary: false,
         },
+      },
+    },
+    size: {
+      options: [ 'sm', 'lg' ],
+      description: 'The size of the checkbox.',
+      table: {
+        type: {
+          summary: [ 'sm', 'lg' ],
+        },
+        defaultValue: {
+          summary: 'lg',
+        },
+      },
+      control: {
+        type: 'select',
       },
     },
     disabled: {
@@ -204,9 +226,11 @@ export const CheckboxGroup = {
       <lg-reactive-form
         [disabled]="disabled"
         [hint]="hint"
+        [optional]="optional"
         [inline]="inline"
         [focus]="focus"
         [label]="label"
+        [size]="size"
         (checkboxChange)="checkboxChange($event)"
         (checkboxBlur)="checkboxBlur($event)">
       </lg-reactive-form>
@@ -218,6 +242,8 @@ export const CheckboxGroup = {
     focus: false,
     label: 'Color',
     hint: 'Please select all colors that apply',
+    optional: false,
+    size: 'lg',
   },
   parameters: {
     docs: {

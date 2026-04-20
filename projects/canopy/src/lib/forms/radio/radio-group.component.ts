@@ -18,7 +18,6 @@ import { LgDomService } from '../../utils';
 import { LgHintComponent } from '../hint';
 import { LgErrorStateMatcher } from '../validation';
 import { LgValidationComponent } from '../validation';
-import { LgMarginDirective } from '../../spacing';
 import { LgLabelComponent } from '../label';
 import { LgFocusDirective } from '../../focus';
 
@@ -32,7 +31,7 @@ let uniqueId = 0;
   templateUrl: './radio-group.component.html',
   styleUrls: [ './radio-group.component.scss', './radio-group--segment.component.scss' ],
   encapsulation: ViewEncapsulation.None,
-  imports: [ LgFocusDirective, LgLabelComponent, LgMarginDirective ],
+  imports: [ LgFocusDirective, LgLabelComponent ],
 })
 export class LgRadioGroupComponent implements ControlValueAccessor, AfterContentInit {
   private control = inject(NgControl, { self: true, optional: true });
@@ -167,6 +166,17 @@ export class LgRadioGroupComponent implements ControlValueAccessor, AfterContent
       this.radios.toArray().forEach(radio => {
         radio.stacked = this.stack;
       });
+
+      // Validate segment button count
+      if (this.variant === 'segment') {
+        const count = this.radios.length;
+
+        if (count < 2 || count > 5) {
+          console.warn(
+            `LgRadioGroupComponent: Segment controls must have between 2 and 5 options. Current count: ${count}`,
+          );
+        }
+      }
     }
   }
 
@@ -174,17 +184,17 @@ export class LgRadioGroupComponent implements ControlValueAccessor, AfterContent
     this._value = value;
   }
 
-  public onTouched(_?: any) {}
+  public onTouched(): void {}
 
   public writeValue(obj: string): void {
     this.value = obj;
   }
 
-  public registerOnChange(fn: any): void {
+  public registerOnChange(fn: (value: boolean | string) => void): void {
     this.onChange = fn;
   }
 
-  public registerOnTouched(fn: any): void {
+  public registerOnTouched(fn: () => void): void {
     this.onTouched = fn;
   }
 

@@ -1,7 +1,7 @@
 @use '../../../styles/mixins';
 
 .lg-radio-group__segment {
-  display: flex;
+  display: block;
   padding: var(--segment-control-common-padding-y) var(--segment-control-common-padding-x);
   align-items: center;
   gap: var(--segment-control-common-gap);
@@ -10,8 +10,11 @@
     var(--segment-control-common-border-colour);
   background: var(--segment-control-common-background-colour);
 
+  @include mixins.lg-breakpoint('md') {
+    display: flex;
+  }
+
   .lg-radio-group--error & {
-    background: var(--radio-error-control-background-colour);
     box-shadow:
       inset 0 0 0 var(--segment-control-error-border-width)
         var(--segment-control-error-border-colour),
@@ -27,16 +30,19 @@
   }
 }
 
-$stack-breakpoints: 'md', 'lg' !default;
+$stack-breakpoints: (
+  'md': 'lg',
+  'lg': 'xl',
+) !default;
 
-@each $stack-breakpoint in $stack-breakpoints {
+@each $stack-breakpoint, $max-breakpoint in $stack-breakpoints {
   .lg-radio-group--stack-#{$stack-breakpoint} .lg-radio-group__segment {
-    @include mixins.lg-breakpoint($stack-breakpoint, 'max-width') {
+    @include mixins.lg-breakpoint($stack-breakpoint, 'range', $max-breakpoint) {
       display: block;
     }
 
     .lg-radio-button--segment {
-      @include mixins.lg-breakpoint($stack-breakpoint, 'max-width') {
+      @include mixins.lg-breakpoint($stack-breakpoint, 'range', $max-breakpoint) {
         margin-bottom: var(--segment-control-common-gap);
 
         &:last-child {

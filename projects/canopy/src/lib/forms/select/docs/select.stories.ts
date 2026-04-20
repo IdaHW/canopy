@@ -8,11 +8,15 @@ import { Meta, moduleMetadata } from '@storybook/angular';
 
 import { LgSelectFieldComponent } from '../select-field.component';
 import { LgHintComponent } from '../../hint';
+import { LgOptionalComponent } from '../../optional';
 import { LgSelectDirective } from '../select.directive';
 
 const template = `
 <lg-select-field [block]="block">
   {{ label }}
+  @if (optional) {
+    <lg-optional>(optional)</lg-optional>
+  }
   @if (hint) {
     <lg-hint>{{ hint }}</lg-hint>
   }
@@ -31,6 +35,7 @@ const template = `
     ReactiveFormsModule,
     LgSelectFieldComponent,
     LgHintComponent,
+    LgOptionalComponent,
     LgSelectDirective,
   ],
 })
@@ -39,6 +44,7 @@ class ReactiveFormComponent {
 
   @Input() block: boolean;
   @Input() hint: string;
+  @Input() optional: boolean;
   @Input() label: string;
   @Input() options: Array<string>;
 
@@ -101,6 +107,11 @@ export default {
         disable: true,
       },
     },
+    _optionalElement: {
+      table: {
+        disable: true,
+      },
+    },
     _labelElement: {
       table: {
         disable: true,
@@ -133,6 +144,7 @@ export const Select = {
         (selectChange)="selectChange($event)"
         [block]="block"
         [disabled]="disabled"
+        [optional]="optional"
         [hint]="hint"
         [label]="label"
         [options]="options"
@@ -142,6 +154,7 @@ export const Select = {
   args: {
     label: 'Color',
     hint: 'Please select a color',
+    optional: false,
     block: false,
     options: [ 'Red', 'Blue', 'Green', 'Yellow' ],
     disabled: false,

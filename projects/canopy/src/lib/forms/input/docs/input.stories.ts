@@ -12,6 +12,7 @@ import { LgPrefixDirective } from '../../../prefix';
 import { LgInputDirective } from '../input.directive';
 import { LgSuffixDirective } from '../../../suffix';
 import { LgHintComponent } from '../../hint';
+import { LgOptionalComponent } from '../../optional';
 import { LgIconComponent } from '../../../icon';
 
 interface Config {
@@ -19,6 +20,7 @@ interface Config {
   buttonText?: boolean;
   disabled?: boolean;
   hint?: string | null;
+  optional?: boolean;
   icon?: string;
   iconButton?: boolean;
   label?: string;
@@ -43,6 +45,7 @@ function createInputStory(args: LgInputFieldComponent) {
         [buttonVariant]="buttonVariant"
         [disabled]="disabled"
         [hint]="hint"
+        [optional]="optional"
         [icon]="icon"
         [iconButton]="iconButton"
         [label]="label"
@@ -68,6 +71,7 @@ function setupInputStoryValues(obj, code, config?: Config) {
     hint: config?.hint === null
       ? ''
       : 'Please enter your name',
+    optional: config?.optional || false,
     icon: 'search',
     label: config?.label || 'Name',
     showLabel: true,
@@ -93,6 +97,9 @@ function setupInputStoryValues(obj, code, config?: Config) {
 const inputTemplate = `
 <lg-input-field [block]="block" [showLabel]="showLabel">
   {{ label }}
+  @if (optional) {
+    <lg-optional>(optional)</lg-optional>
+  }
   @if (hint) {
     <lg-hint>{{ hint }}</lg-hint>
   }
@@ -144,6 +151,7 @@ const inputTemplate = `
     LgButtonComponent,
     LgIconComponent,
     LgHintComponent,
+    LgOptionalComponent,
   ],
 })
 class ReactiveFormComponent {
@@ -165,6 +173,7 @@ class ReactiveFormComponent {
   @Input() buttonText: string;
   @Input() buttonVariant: ButtonPriority;
   @Input() hint: string;
+  @Input() optional: boolean;
   @Input() icon: string;
   @Input() iconButton: boolean;
   @Input() label: string;

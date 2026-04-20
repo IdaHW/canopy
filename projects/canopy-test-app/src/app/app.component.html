@@ -474,22 +474,24 @@
 
 
                   <lg-input-field>
-                    Text input with icon
+                    Text input with icon button
                     <input lgInput formControlName="textSearch" />
-                    <button
-                      lg-button
-                      lgSuffix
-                      [iconButton]="true"
-                      >
-                      Search
-                      <lg-icon name="search" />
-                    </button>
                   </lg-input-field>
+                  <button
+                    type="button"
+                    lg-button
+                    [iconButton]="true"
+                    lgMarginTop="2"
+                    >
+                    Search
+                    <lg-icon name="search" />
+                  </button>
 
                   <lg-input-field>
-                    Text input with add-on icon
+                    Text input with add-on and icon buttons
                     <input lgInput formControlName="textSearch" />
                     <button
+                      type="button"
                       lg-button
                       lgSuffix
                       [iconButton]="true"
@@ -498,15 +500,16 @@
                       Cancel
                       <lg-icon name="close" />
                     </button>
-                    <button
-                      lg-button
-                      lgSuffix
-                      [iconButton]="true"
-                      >
-                      Search
-                      <lg-icon name="search" />
-                    </button>
                   </lg-input-field>
+                  <button
+                    type="button"
+                    lg-button
+                    [iconButton]="true"
+                    lgMarginTop="2"
+                    >
+                    Search
+                    <lg-icon name="search" />
+                  </button>
 
                   <lg-input-field>
                     Text input with prefix

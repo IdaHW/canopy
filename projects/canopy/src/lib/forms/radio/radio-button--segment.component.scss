@@ -10,6 +10,11 @@
   border-radius: var(--segment-button-common-border-radius);
   background: var(--segment-button-rest-background-colour);
   transition: all var(--animation-duration) var(--animation-fn);
+  margin-bottom: var(--segment-control-common-gap);
+
+  @include mixins.lg-breakpoint('md') {
+    margin-bottom: 0;
+  }
 
   .lg-radio-button__label {
     flex-grow: 1;
@@ -22,11 +27,6 @@
     &::after {
       display: none;
     }
-  }
-
-  &.lg-radio-button--error:has(.lg-radio-button__input:checked) {
-    background: var(--segment-button-error-background-colour);
-    color: var(--segment-button-active-colour);
   }
 
   &:has(.lg-radio-button__input:checked) {
@@ -47,31 +47,24 @@
   }
 
   &:has(.lg-radio-button__input:hover) {
-    background: var(--segment-button-hover-background-colour);
     color: var(--segment-button-hover-colour);
+    border-radius: var(--segment-button-common-border-radius);
+    background: var(--segment-button-hover-background-colour);
     transition: all var(--animation-duration) var(--animation-fn);
   }
 
   &:has(.lg-radio-button__input:focus-visible) {
-    background: var(--radio-error-control-background-colour);
-    box-shadow:
-      inset 0 0 0 var(--segment-button-focus-border-width)
-        var(--segment-control-focus-border-colour),
-      0 0 0 var(--text-input-rest-border-width)
-        var(--segment-control-common-background-colour);
     color: var(--segment-button-focus-colour);
-    outline: 0;
+    border-radius: var(--segment-button-common-border-radius);
+    box-shadow: inset 0 0 0 var(--segment-button-focus-border-width)
+      var(--segment-control-focus-border-colour);
+    background: var(--segment-button-focus-background-colour);
   }
 
   &:has(.lg-radio-button__input:focus-visible:hover) {
-    background: var(--radio-error-control-background-colour);
-    box-shadow:
-      inset 0 0 0 var(--segment-button-focus-border-width)
-        var(--segment-control-focus-border-colour),
-      0 0 0 var(--text-input-rest-border-width)
-        var(--segment-control-common-background-colour);
-    color: var(--segment-button-focus-colour);
-    outline: 0;
+    color: var(--segment-button-hover-colour);
+    border-radius: var(--segment-button-common-border-radius);
+    background: var(--segment-button-hover-background-colour);
   }
 
   $stack-breakpoints: 'md', 'lg' !default;

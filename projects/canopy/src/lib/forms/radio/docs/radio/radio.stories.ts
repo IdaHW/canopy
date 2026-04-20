@@ -9,11 +9,15 @@ import { moduleMetadata } from '@storybook/angular';
 import { LgRadioGroupComponent } from '../../radio-group.component';
 import { LgRadioButtonComponent } from '../../radio-button.component';
 import { LgHintComponent } from '../../../hint';
+import { LgOptionalComponent } from '../../../optional';
 
 const formTemplate = `
 <form [formGroup]="form">
   <lg-radio-group [inline]="inline" [focus]="focus" formControlName="color">
     {{ label }}
+    @if (optional) {
+      <lg-optional>(optional)</lg-optional>
+    }
     @if (hint) {
       <lg-hint>{{ hint }}</lg-hint>
     }
@@ -33,6 +37,7 @@ const formTemplate = `
     ReactiveFormsModule,
     LgRadioGroupComponent,
     LgHintComponent,
+    LgOptionalComponent,
     LgRadioButtonComponent,
   ],
 })
@@ -44,6 +49,7 @@ class ReactiveFormRadioComponent {
   @Input() focus = false;
   @Input() label: string;
   @Input() hint: string;
+  @Input() optional: boolean;
   @Input()
   set disabled(isDisabled: boolean) {
     if (isDisabled === true) {
@@ -248,6 +254,7 @@ export const Radio = {
       <lg-reactive-form-radio
         [disabled]="disabled"
         [hint]="hint"
+        [optional]="optional"
         [inline]="inline"
         [size]="size"
         [label]="label"
@@ -260,10 +267,11 @@ export const Radio = {
   args: {
     disabled: false,
     inline: false,
-    size: 'sm',
+    size: 'lg',
     focus: false,
     label: 'Color',
     hint: 'Please select a color',
+    optional: false,
   },
   parameters: {
     docs: {

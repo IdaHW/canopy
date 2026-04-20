@@ -22,10 +22,6 @@
   .lg-toggle__input:disabled + & {
     color: var(--checkbox-disabled-label-colour);
   }
-
-  .lg-toggle--error & {
-    color: var(--form-error-color);
-  }
 }
 
 .lg-toggle__label > .lg-toggle__checkbox {
@@ -43,9 +39,10 @@
   }
 
   .lg-toggle__input:disabled + & {
-    background: var(--checkbox-disabled-control-background-colour);
-    border: var(--checkbox-rest-control-border-width) solid
+    border-radius: var(--checkbox-common-border-radius);
+    border: var(--checkbox-disabled-control-border-width) solid
       var(--checkbox-disabled-control-border-colour);
+    background: var(--checkbox-disabled-control-background-colour);
   }
 
   &--sm {
@@ -71,28 +68,21 @@
   }
 
   .lg-toggle__input:focus-visible + & {
+    border-radius: var(--checkbox-common-border-radius);
+    border: var(--checkbox-focus-control-border-width) solid
+      var(--checkbox-focus-control-border-colour);
     background: var(--checkbox-focus-control-background-colour);
-    box-shadow:
-      inset 0 0 0 var(--checkbox-focus-control-border-width)
-        var(--checkbox-focus-control-border-colour),
-      0 0 0 var(--text-input-rest-border-width)
-        var(--checkbox-focus-control-background-colour);
-    border: var(--text-input-rest-border-width) solid
+    box-shadow: 0 0 0 var(--checkbox-focus-control-border-width)
       var(--checkbox-focus-control-background-colour);
-    outline: 0;
   }
 
   .lg-toggle--error &,
   .lg-toggle--error &:hover {
+    border: var(--checkbox-error-control-border-width) solid
+      var(--checkbox-error-control-border-colour);
     background: var(--checkbox-error-control-background-colour);
-    box-shadow:
-      inset 0 0 0 var(--checkbox-error-control-border-width)
-        var(--checkbox-error-control-border-colour),
-      0 0 0 var(--text-input-rest-border-width)
-        var(--checkbox-error-control-background-colour);
-    border: var(--text-input-rest-border-width) solid
+    box-shadow: 0 0 0 var(--checkbox-error-control-border-width)
       var(--checkbox-error-control-background-colour);
-    outline: 0;
   }
 
   .lg-toggle__input:checked + & {
