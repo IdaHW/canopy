@@ -43,6 +43,12 @@ export class LgInputDirective {
   id = `lg-input-${this.uniqueId}`;
 
   @Input()
+  @HostBinding('attr.disabled')
+  get disabledAttr() {
+    return this.disabled
+      ? true
+      : null;
+  }
   disabled = false;
 
   @Input()

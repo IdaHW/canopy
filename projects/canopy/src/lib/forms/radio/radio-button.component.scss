@@ -37,7 +37,6 @@
   left: 0;
   top: 0;
   bottom: 0;
-  display: inline-block;
   display: flex;
   height: var(--_radio-outer-height);
   width: var(--_radio-outer-width);
@@ -101,7 +100,7 @@
   }
 
   .lg-radio-button__input:disabled:checked + & {
-    background-color: var(--radio-disabled-label-color);
+    background-color: var(--radio-disabled-label-colour);
   }
 
   .lg-radio-button--error .lg-radio-button__input:checked + & {

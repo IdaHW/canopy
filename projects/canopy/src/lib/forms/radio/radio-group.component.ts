@@ -48,7 +48,7 @@ export class LgRadioGroupComponent implements ControlValueAccessor, AfterContent
   private nextUniqueId = ++uniqueId;
   private _name = `lg-radio-group-${this.nextUniqueId}`;
   variant: RadioVariant;
-  _stack: RadioStackBreakpoint = 'sm';
+  _stack: RadioStackBreakpoint;
   _radios: QueryList<LgRadioButtonComponent>;
   _hintElement: LgHintComponent;
   _validationElement: LgValidationComponent;
