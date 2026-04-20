@@ -190,11 +190,11 @@ export class LgRadioGroupComponent implements ControlValueAccessor, AfterContent
     this.value = obj;
   }
 
-  public registerOnChange(fn: (value: boolean | string) => void): void {
+  public registerOnChange(fn: any): void {
     this.onChange = fn;
   }
 
-  public registerOnTouched(fn: () => void): void {
+  public registerOnTouched(fn: any): void {
     this.onTouched = fn;
   }
 
