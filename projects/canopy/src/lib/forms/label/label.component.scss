@@ -4,3 +4,10 @@
   font-weight: var(--font-weight-700);
   width: 100%;
 }
+
+.lg-label--optional {
+  display: block;
+  color: var(--label-and-hint-hint-colour);
+  margin-bottom: var(--label-and-hint-gap);
+  font-weight: var(--font-weight-400);
+}

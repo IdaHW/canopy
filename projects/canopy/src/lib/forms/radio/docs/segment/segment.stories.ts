@@ -15,7 +15,7 @@ const segmentTemplate = `
 <lg-segment-group [inline]="inline" [focus]="focus" [stack]="stack" formControlName="color">
   {{ label }}
   @if (optional) {
-    <span class="lg-hint--optional">(optional)</span>
+    <span class="lg-label--optional">(optional)</span>
   }
   @if (hint) {
     <lg-hint>{{ hint }}</lg-hint>

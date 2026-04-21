@@ -15,7 +15,7 @@ const formTemplate = `
   <lg-radio-group [inline]="inline" [focus]="focus" formControlName="color">
     {{ label }}
     @if (optional) {
-      <span class="lg-hint--optional">(optional)</span>
+      <span class="lg-label--optional">(optional)</span>
     }
     @if (hint) {
       <lg-hint>{{ hint }}</lg-hint>

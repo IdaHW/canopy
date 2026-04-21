@@ -97,7 +97,7 @@ const inputTemplate = `
 <lg-input-field [block]="block" [showLabel]="showLabel">
   {{ label }}
   @if (optional) {
-    <span class="lg-hint--optional">(optional)</span>
+    <span class="lg-label--optional">(optional)</span>
   }
   @if (hint) {
     <lg-hint>{{ hint }}</lg-hint>

@@ -15,7 +15,7 @@ const formTemplate = `
   <lg-checkbox-group [inline]="inline" [focus]="focus" formControlName="colors">
     {{ label }}
     @if (optional) {
-      <span class="lg-hint--optional">(optional)</span>
+      <span class="lg-label--optional">(optional)</span>
     }
     @if (hint) {
       <lg-hint>{{ hint }}</lg-hint>
