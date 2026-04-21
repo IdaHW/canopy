@@ -8,14 +8,13 @@ import { Meta, moduleMetadata } from '@storybook/angular';
 
 import { LgSelectFieldComponent } from '../select-field.component';
 import { LgHintComponent } from '../../hint';
-import { LgOptionalComponent } from '../../optional';
 import { LgSelectDirective } from '../select.directive';
 
 const template = `
 <lg-select-field [block]="block">
   {{ label }}
   @if (optional) {
-    <lg-optional>(optional)</lg-optional>
+    <span class="lg-hint--optional">(optional)</span>
   }
   @if (hint) {
     <lg-hint>{{ hint }}</lg-hint>
@@ -35,7 +34,6 @@ const template = `
     ReactiveFormsModule,
     LgSelectFieldComponent,
     LgHintComponent,
-    LgOptionalComponent,
     LgSelectDirective,
   ],
 })

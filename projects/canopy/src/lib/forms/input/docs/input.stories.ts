@@ -12,7 +12,6 @@ import { LgPrefixDirective } from '../../../prefix';
 import { LgInputDirective } from '../input.directive';
 import { LgSuffixDirective } from '../../../suffix';
 import { LgHintComponent } from '../../hint';
-import { LgOptionalComponent } from '../../optional';
 import { LgIconComponent } from '../../../icon';
 
 interface Config {
@@ -98,7 +97,7 @@ const inputTemplate = `
 <lg-input-field [block]="block" [showLabel]="showLabel">
   {{ label }}
   @if (optional) {
-    <lg-optional>(optional)</lg-optional>
+    <span class="lg-hint--optional">(optional)</span>
   }
   @if (hint) {
     <lg-hint>{{ hint }}</lg-hint>
@@ -151,7 +150,6 @@ const inputTemplate = `
     LgButtonComponent,
     LgIconComponent,
     LgHintComponent,
-    LgOptionalComponent,
   ],
 })
 class ReactiveFormComponent {

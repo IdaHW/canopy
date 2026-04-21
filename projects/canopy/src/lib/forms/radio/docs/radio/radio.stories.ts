@@ -9,14 +9,13 @@ import { moduleMetadata } from '@storybook/angular';
 import { LgRadioGroupComponent } from '../../radio-group.component';
 import { LgRadioButtonComponent } from '../../radio-button.component';
 import { LgHintComponent } from '../../../hint';
-import { LgOptionalComponent } from '../../../optional';
 
 const formTemplate = `
 <form [formGroup]="form">
   <lg-radio-group [inline]="inline" [focus]="focus" formControlName="color">
     {{ label }}
     @if (optional) {
-      <lg-optional>(optional)</lg-optional>
+      <span class="lg-hint--optional">(optional)</span>
     }
     @if (hint) {
       <lg-hint>{{ hint }}</lg-hint>
@@ -37,7 +36,6 @@ const formTemplate = `
     ReactiveFormsModule,
     LgRadioGroupComponent,
     LgHintComponent,
-    LgOptionalComponent,
     LgRadioButtonComponent,
   ],
 })

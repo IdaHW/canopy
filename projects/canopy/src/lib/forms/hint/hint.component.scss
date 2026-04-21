@@ -3,4 +3,8 @@
   color: var(--label-and-hint-hint-colour);
   margin-bottom: var(--form-field-gap);
   font-weight: var(--font-weight-400);
+
+  &--optional {
+    margin-bottom: var(--label-and-hint-gap);
+  }
 }

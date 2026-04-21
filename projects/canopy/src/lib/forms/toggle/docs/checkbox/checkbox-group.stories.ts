@@ -8,7 +8,6 @@ import { moduleMetadata } from '@storybook/angular';
 
 import { LgCheckboxGroupComponent } from '../../../checkbox-group';
 import { LgHintComponent } from '../../../hint';
-import { LgOptionalComponent } from '../../../optional';
 import { LgToggleComponent } from '../../toggle.component';
 
 const formTemplate = `
@@ -16,7 +15,7 @@ const formTemplate = `
   <lg-checkbox-group [inline]="inline" [focus]="focus" formControlName="colors">
     {{ label }}
     @if (optional) {
-      <lg-optional>(optional)</lg-optional>
+      <span class="lg-hint--optional">(optional)</span>
     }
     @if (hint) {
       <lg-hint>{{ hint }}</lg-hint>
@@ -34,7 +33,6 @@ const formTemplate = `
     ReactiveFormsModule,
     LgCheckboxGroupComponent,
     LgHintComponent,
-    LgOptionalComponent,
     LgToggleComponent,
   ],
 })

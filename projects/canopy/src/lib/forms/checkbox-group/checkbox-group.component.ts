@@ -15,7 +15,6 @@ import { ControlValueAccessor, FormGroupDirective, NgControl } from '@angular/fo
 
 import { LgDomService } from '../../utils';
 import { LgHintComponent } from '../hint';
-import { LgOptionalComponent } from '../optional';
 import { LgErrorStateMatcher } from '../validation';
 import { LgValidationComponent } from '../validation';
 import { LgToggleComponent } from '../toggle';
@@ -32,7 +31,7 @@ let uniqueId = 0;
   templateUrl: './checkbox-group.component.html',
   styleUrls: [ './checkbox-group.component.scss' ],
   encapsulation: ViewEncapsulation.None,
-  imports: [ LgFocusDirective, LgLabelComponent, LgOptionalComponent, LgMarginDirective ],
+  imports: [ LgFocusDirective, LgLabelComponent, LgMarginDirective ],
 })
 export class LgCheckboxGroupComponent implements ControlValueAccessor {
   private control = inject(NgControl, { self: true, optional: true });

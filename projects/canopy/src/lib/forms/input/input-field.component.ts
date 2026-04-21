@@ -16,7 +16,6 @@ import { Subscription } from 'rxjs';
 import { LgDomService } from '../../utils';
 import { LgHintComponent } from '../hint';
 import { LgLabelComponent } from '../label';
-import { LgOptionalComponent } from '../optional';
 import { LgValidationComponent } from '../validation';
 import { LgButtonComponent } from '../../button';
 import { LgSuffixDirective } from '../../suffix';
@@ -34,7 +33,6 @@ let nextUniqueId = 0;
   imports: [
     LgLabelComponent,
     LgHintComponent,
-    LgOptionalComponent,
     LgValidationComponent,
     LgButtonComponent,
     LgSuffixDirective,

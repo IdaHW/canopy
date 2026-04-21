@@ -11,7 +11,6 @@ import {
 import { LgDomService } from '../../utils';
 import { LgHintComponent } from '../hint';
 import { LgLabelComponent } from '../label';
-import { LgOptionalComponent } from '../optional';
 import { LgErrorStateMatcher } from '../validation';
 import { LgValidationComponent } from '../validation';
 import { LgIconComponent } from '../../icon';
@@ -25,7 +24,7 @@ let nextUniqueId = 0;
   templateUrl: './select-field.component.html',
   styleUrls: [ './select-field.component.scss' ],
   encapsulation: ViewEncapsulation.None,
-  imports: [ LgLabelComponent, LgOptionalComponent, LgIconComponent ],
+  imports: [ LgLabelComponent, LgIconComponent ],
 })
 export class LgSelectFieldComponent {
   private errorState = inject(LgErrorStateMatcher);

@@ -37,12 +37,12 @@ and in your HTML:
 
 ### Optional fields
 
-For optional fields, use the `lg-optional` component to indicate that the field is not required:
+For optional fields, use a `<span>` element with the `lg-hint--optional` class to indicate that the field is not required:
 
 ```html
 <lg-input-field>
   Name
-  <lg-optional>(optional)</lg-optional>
+  <span class="lg-hint--optional">(optional)</span>
   <lg-hint>Please enter your name</lg-hint>
   <input lgInput formControlName="name" />
 </lg-input-field>
