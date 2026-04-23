@@ -16,7 +16,7 @@ const statuses: Array<Status> = [ 'generic', 'info', 'success', 'warning', 'erro
     <lg-banner [status]="status" [statusTheme]="statusTheme">
       <lg-icon [name]="icon" />
       {{ content }} Here is some <a href="#"> link text</a> or a
-      <button lg-button variant="link">button link</button>.
+      <button lg-button priority="link">button link</button>.
     </lg-banner>
   `,
   imports: [ LgBannerComponent, LgIconComponent, LgButtonComponent ],

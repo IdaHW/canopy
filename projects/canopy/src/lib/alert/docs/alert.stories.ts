@@ -69,7 +69,7 @@ const template = `
   [status]="status"
   [role]="role"
 >
-  {{content}} Here is some <a href="#"> link text</a> or a <button lg-button variant="link">button link</button>.
+  {{content}} Here is some <a href="#"> link text</a> or a <button lg-button priority="link">button link</button>.
 </lg-alert>
 `;
 
@@ -84,7 +84,7 @@ export const StandardAlert = {
   [statusTheme]="statusTheme"
   [role]="role"
 >
-  {{content}} Here is some <a href="#"> link text</a> or a <button lg-button variant="link">button link</button>.
+  {{content}} Here is some <a href="#"> link text</a> or a <button lg-button priority="link">button link</button>.
 </lg-alert>
 `,
   }),
