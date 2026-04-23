@@ -97,14 +97,11 @@
   }
 
   &--link {
-    border: 0;
-    background-color: transparent;
-    cursor: pointer;
-    min-width: initial;
-    border-radius: 0;
+    border: none;
+    background: none;
+    min-height: 0;
+    min-width: 0;
     width: initial;
-    font-weight: var(--font-weight-400);
-    text-align: start;
     margin-bottom: 0;
 
     @include mixins.lg-link();
