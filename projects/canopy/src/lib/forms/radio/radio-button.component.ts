@@ -104,6 +104,12 @@ export class LgRadioButtonComponent implements OnInit {
   public get errorClass() {
     return this.errorState.isControlInvalid(this.control, this.controlContainer);
   }
+  @HostBinding('class.lg-radio-button--sm') get sizeSmClass() {
+    return this.size === 'sm';
+  }
+  @HostBinding('class.lg-radio-button--lg') get sizeLgClass() {
+    return this.size === 'lg';
+  }
 
   _hintElement: LgHintComponent;
   @ContentChild(LgHintComponent)

@@ -50,6 +50,7 @@
     background: var(--text-input-rest-background-colour);
     min-height: var(--input-common-scale-xxl);
     max-height: var(--input-common-scale-xxl);
+    margin-top: var(--form-field-gap);
 
     #{$block}--hover & {
       border-color: var(--text-input-hover-border-colour);

@@ -14,6 +14,7 @@
   align-items: center;
   position: relative;
   font-weight: var(--font-weight-400);
+  margin-top: var(--form-field-gap);
 
   &:has(> .lg-toggle__checkbox:hover) {
     color: var(--checkbox-hover-label-colour);
@@ -86,8 +87,34 @@
   }
 
   .lg-toggle__input:checked + & {
-    background-color: var(--checkbox-rest-control-background-colour);
-    color: var(--checkbox-rest-common-colour);
+    background-color: var(--checkbox-rest-indicator-colour);
+    color: var(--checkbox-rest-control-background-colour);
     border-color: var(--checkbox-rest-control-border-colour);
+
+    &:hover {
+      background-color: var(--checkbox-hover-indicator-colour);
+      color: var(--checkbox-hover-control-background-colour);
+      border-color: var(--checkbox-hover-control-border-colour);
+    }
+  }
+
+  .lg-toggle__input:checked:disabled + & {
+    background-color: var(--checkbox-disabled-indicator-colour);
+    color: var(--checkbox-disabled-control-background-colour);
+    border-color: var(--checkbox-disabled-control-border-colour);
+  }
+
+  .lg-toggle__input:checked:focus-visible + & {
+    background-color: var(--checkbox-focus-indicator-colour);
+    color: var(--checkbox-focus-control-background-colour);
+    border-color: var(--checkbox-focus-control-border-colour);
+    box-shadow: 0 0 0 var(--checkbox-focus-control-border-width)
+      var(--checkbox-focus-control-background-colour);
+  }
+
+  .lg-toggle--error .lg-toggle__input:checked + & {
+    background-color: var(--checkbox-error-indicator-colour);
+    color: var(--checkbox-error-control-background-colour);
+    border-color: var(--checkbox-error-control-border-colour);
   }
 }
