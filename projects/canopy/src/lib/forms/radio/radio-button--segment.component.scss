@@ -46,7 +46,7 @@
     cursor: not-allowed;
   }
 
-  &:has(.lg-radio-button__input:hover) {
+  &:has(.lg-radio-button__input:hover:not(:checked)) {
     color: var(--segment-button-hover-colour);
     border-radius: var(--segment-button-common-border-radius);
     background: var(--segment-button-hover-background-colour);

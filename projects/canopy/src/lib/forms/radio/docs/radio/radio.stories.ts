@@ -267,8 +267,8 @@ export const Radio = {
     inline: false,
     size: 'lg',
     focus: false,
-    label: 'Color',
-    hint: 'Please select a color',
+    label: 'Colour',
+    hint: 'Please select a colour',
     optional: false,
   },
   parameters: {

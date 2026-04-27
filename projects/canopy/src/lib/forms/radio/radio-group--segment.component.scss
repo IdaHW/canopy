@@ -12,7 +12,7 @@
   margin-top: var(--form-field-gap);
 
   @include mixins.lg-breakpoint('md') {
-    display: flex;
+    display: inline-flex;
   }
 
   .lg-radio-group--error & {

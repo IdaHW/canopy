@@ -27,7 +27,7 @@ const hintTestId = 'test-hint-id';
   template: `
     <form (ngSubmit)="login()" [formGroup]="form" #testForm="ngForm">
       <lg-filter-multiple-group formControlName="color">
-        Color
+        Colour
         <lg-hint id="${hintTestId}">Choose your favourite</lg-hint>
         @if (isControlInvalid(color, testForm)) {
           <lg-validation id="${validationTestId}"> Error </lg-validation>

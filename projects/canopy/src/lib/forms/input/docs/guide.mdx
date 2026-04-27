@@ -95,6 +95,37 @@ There is an additional add-on button variant for adding a button to the input fi
 </lg-input-field>
 ```
 
+#### External button
+
+You can add a button that sits outside the input border using the `lgExternalButton` directive. This is useful for actions like search or submit buttons.
+
+```html
+<lg-input-field>
+  Name
+  <input lgInput formControlName="name" />
+  <button lg-button lgExternalButton priority="primary">
+    Search
+  </button>
+</lg-input-field>
+```
+
+You can combine multiple suffixes with an external button:
+
+```html
+<lg-input-field>
+  Name
+  <input lgInput formControlName="name" />
+  <span lgSuffix>%</span>
+  <button lg-button lgSuffix [iconButton]="true" priority="add-on">
+    Close
+    <lg-icon name="close" />
+  </button>
+  <button lg-button lgExternalButton priority="primary">
+    Submit
+  </button>
+</lg-input-field>
+```
+
 ## Dos and Don'ts
 
 ### Do

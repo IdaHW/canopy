@@ -150,8 +150,8 @@ export const Select = {
     `,
   }),
   args: {
-    label: 'Color',
-    hint: 'Please select a color',
+    label: 'Colour',
+    hint: 'Please select a colour',
     optional: false,
     block: false,
     options: [ 'Red', 'Blue', 'Green', 'Yellow' ],

@@ -25,3 +25,8 @@
     </div>
   }
 </div>
+@if (externalButtonChildren.length) {
+  <div class="lg-input-field__external-btn">
+    <ng-content select="[lgExternalButton]" />
+  </div>
+}

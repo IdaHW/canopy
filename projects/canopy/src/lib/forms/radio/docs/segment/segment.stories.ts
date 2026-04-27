@@ -249,8 +249,8 @@ export const SegmentButtons = {
     disabled: false,
     stack: false,
     focus: false,
-    label: 'Color',
-    hint: 'Please select a color',
+    label: 'Colour',
+    hint: 'Please select a colour',
     optional: false,
   },
   parameters: {

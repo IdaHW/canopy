@@ -8,7 +8,7 @@
   transition: background-color var(--animation-duration) var(--animation-fn);
   display: flex;
   min-width: var(--button-common-labelled-min-width);
-  min-height: var(--button-common-labelled-min-height);
+  height: var(--button-common-labelled-min-height);
   padding: var(--button-common-labelled-padding-y) var(--button-common-labelled-padding-x);
   justify-content: center;
   align-items: center;
@@ -226,16 +226,5 @@ $priorities: 'primary', 'secondary' !default;
     &:hover {
       box-shadow: none;
     }
-  }
-}
-
-.lg-input-field__suffix .lg-btn {
-  border-radius: 0;
-  padding: calc(var(--space-1) - var(--border-width));
-  min-height: 0;
-  min-width: 0;
-
-  &:hover {
-    border-radius: 0 !important;
   }
 }

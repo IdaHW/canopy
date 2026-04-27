@@ -13,6 +13,7 @@ import { LgInputDirective } from '../input.directive';
 import { LgSuffixDirective } from '../../../suffix';
 import { LgHintComponent } from '../../hint';
 import { LgIconComponent } from '../../../icon';
+import { LgExternalButtonDirective } from '../../../external-button';
 
 interface Config {
   block?: boolean;
@@ -120,7 +121,7 @@ const inputTemplate = `
   @if (showButtonSecondSuffix) {
     <button
       lg-button
-      lgSuffix
+      lgExternalButton
       [iconButton]="iconButton"
       [priority]="buttonVariant"
     >
@@ -150,6 +151,7 @@ const inputTemplate = `
     LgButtonComponent,
     LgIconComponent,
     LgHintComponent,
+    LgExternalButtonDirective,
   ],
 })
 class ReactiveFormComponent {
@@ -350,7 +352,7 @@ setupInputStoryValues(WithButtonSuffix, inputTemplate, {
 });
 
 export const WithTextSuffix = {
-  name: 'With test suffix',
+  name: 'With text suffix',
   render: (args: LgInputFieldComponent) => createInputStory(args),
 };
 
@@ -358,6 +360,16 @@ setupInputStoryValues(WithTextSuffix, inputTemplate, {
   showTextSuffix: true,
   label: 'Amount',
   hint: null,
+});
+
+export const WithMultipleButtonSuffixes = {
+  name: 'With multiple buttons suffixes',
+  render: (args: LgInputFieldComponent) => createInputStory(args),
+};
+
+setupInputStoryValues(WithMultipleButtonSuffixes, inputTemplate, {
+  showButtonFirstSuffix: true,
+  showButtonSecondSuffix: true,
 });
 
 export const WithTextPrefix = {

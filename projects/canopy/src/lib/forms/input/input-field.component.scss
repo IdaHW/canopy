@@ -29,28 +29,40 @@
     }
   }
 
+  &__prefix {
+    margin-left: var(--text-input-common-padding-x);
+  }
+
   &__suffix {
+    margin-right: var(--text-input-common-padding-x);
+
     > .lg-btn {
+      margin: 0;
+      padding: 0;
+    }
+  }
+
+  &__external-btn {
+    display: inline-flex;
+    margin-left: var(--button-gap);
+    margin-top: 0;
+    align-self: flex-end;
+
+    .lg-btn {
       margin-bottom: 0;
       margin-top: 0;
-      margin-right: var(--suffix-button-margin);
-    }
-
-    > .lg-btn:last-child {
-      margin-right: calc((-1 * var(--suffix-margin)) + var(--suffix-button-margin));
+      display: inline-block;
     }
   }
 
   &__inputs {
     display: inline-flex;
     align-items: center;
-    padding: var(--text-input-common-padding-y) var(--text-input-common-padding-x);
     border-radius: var(--text-input-common-border-radius);
     border: var(--text-input-rest-border-width) solid var(--text-input-rest-border-colour);
     background: var(--text-input-rest-background-colour);
-    min-height: var(--input-common-scale-xxl);
-    max-height: var(--input-common-scale-xxl);
     margin-top: var(--form-field-gap);
+    height: 3rem;
 
     #{$block}--hover & {
       border-color: var(--text-input-hover-border-colour);
@@ -58,11 +70,13 @@
 
     #{$block}--focus & {
       color: var(--select-focus-colour);
-      border: var(--text-input-focus-border-width) solid
+      border: var(--text-input-rest-border-width) solid
         var(--text-input-focus-border-colour);
       background: var(--text-input-focus-background-colour);
-      box-shadow: 0 0 0 var(--text-input-focus-border-width)
-        var(--text-input-focus-background-colour);
+      box-shadow:
+        0 0 0 var(--text-input-rest-border-width) var(--text-input-focus-border-colour),
+        0 0 0 var(--text-input-focus-border-width)
+          var(--text-input-focus-background-colour);
     }
 
     #{$block}--disabled & {
@@ -75,11 +89,13 @@
 
     #{$block}--error & {
       color: var(--text-input-error-colour);
-      border: var(--text-input-error-border-width) solid
+      border: var(--text-input-rest-border-width) solid
         var(--text-input-error-border-colour);
       background: var(--text-input-error-background-colour);
-      box-shadow: 0 0 0 var(--text-input-error-border-width)
-        var(--text-input-error-background-colour);
+      box-shadow:
+        0 0 0 var(--text-input-rest-border-width) var(--text-input-error-border-colour),
+        0 0 0 var(--text-input-error-border-width)
+          var(--text-input-error-background-colour);
     }
 
     #{$block}--error#{$block}--hover#{$block}--focus & {
@@ -106,6 +122,7 @@
   outline: 0;
   max-width: 100%;
   background: none;
+  padding: var(--text-input-common-padding-y) var(--text-input-common-padding-x);
 
   &[type='number']::-webkit-inner-spin-button,
   &[type='number']::-webkit-outer-spin-button {
