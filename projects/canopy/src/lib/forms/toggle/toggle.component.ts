@@ -26,6 +26,11 @@ import { CheckboxSize } from './toggle.interface';
 
 let nextUniqueId = 0;
 
+/**
+ * @deprecated For lg-switch, use inline radio group or segment instead.  Will be removed in a future major release (date/version TBC).
+ * This migration applies only to the `lg-switch` selector, not to
+ * `lg-toggle`, `lg-checkbox`, or `lg-filter-checkbox`.
+ */
 @Component({
   selector: 'lg-toggle, lg-checkbox, lg-switch, lg-filter-checkbox',
   templateUrl: './toggle.component.html',

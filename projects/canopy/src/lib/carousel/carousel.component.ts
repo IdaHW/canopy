@@ -21,6 +21,9 @@ import { LgIconComponent } from '../icon';
 import { LgCarouselItemComponent } from './carousel-item/carousel-item.component';
 import { LgAutoplayComponent } from './auto-play/auto-play.component';
 
+/**
+ * @deprecated Use cards instead. This component will be removed in a future major release (date/version TBC).
+ */
 @Component({
   selector: 'lg-carousel',
   templateUrl: './carousel.component.html',
@@ -29,9 +32,6 @@ import { LgAutoplayComponent } from './auto-play/auto-play.component';
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [ LgHeadingComponent, LgAutoplayComponent, LgIconComponent, NgClass ],
 })
-/**
- * @deprecated This component will be removed in the future
- */
 export class LgCarouselComponent implements AfterContentInit, OnDestroy {
   private cd = inject(ChangeDetectorRef);
 

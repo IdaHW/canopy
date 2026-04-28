@@ -27,6 +27,29 @@ addons.setConfig({
         mdx: true,
       },
     },
+     {
+      tags: 'awaiting-deprecation',
+      badge: {
+        text: 'Awaiting deprecation',
+        style: {
+          backgroundColor: '#fff9c7',
+          color: '#1d1d1b',
+          fontWeight: 'normal',
+          fontSize: '10px !important',
+        },
+         tooltip: 'This component will be deprecated in a future major release (date/version TBC).',
+      },
+      display: {
+        sidebar: [
+        {
+            type: 'group',
+            skipInherited: false,
+        },
+      ],
+        toolbar: true,
+        mdx: true,
+      },
+    },
     ...defaultConfig,
   ],
   theme: canopyTheme

@@ -6,6 +6,9 @@ import {
   ViewEncapsulation,
 } from '@angular/core';
 
+/**
+ * @deprecated This component will be removed in a future major release (date/version TBC).
+ */
 @Component({
   selector: 'lg-hero-img',
   templateUrl: './hero-img.component.html',

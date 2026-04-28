@@ -5,6 +5,9 @@ import {
   ViewEncapsulation,
 } from '@angular/core';
 
+/**
+ *  @deprecated Use button or link instead. Will be removed in a future major release (date/version TBC).
+ */
 @Component({
   selector: '[lg-quick-action]',
   templateUrl: './quick-action.component.html',
