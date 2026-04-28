@@ -6,7 +6,7 @@ import { createToggleStory, ReactiveToggleFormComponent } from '../toggle.storie
 
 export default {
   title: 'Components/Forms/Switch/Examples',
-  tags: [ 'pending' ],
+  tags: [ 'awaiting-deprecation' ],
   component: LgToggleComponent,
   decorators: [
     moduleMetadata({

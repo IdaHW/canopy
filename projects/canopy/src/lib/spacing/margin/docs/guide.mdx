@@ -100,6 +100,14 @@ Apply `6` margin on top and bottom, but set to none at the `lg` breakpoint
 <lg-card lgMarginVertical="6" lgMarginVerticalNoneAt="lg"></lg-card>
 ```
 
+Each directive applies only within a specific range:
+
+> `lgMarginRightNoneAt="sm"` applies from `sm` to just before `md`
+>
+> `lgMarginRightNoneAt="md"` applies from `md` to just before `lg`
+>
+> `lgMarginRightNoneAt="xxl"` applies from `xxl` and up (no upper limit)
+
 #### Multiple breakpoints with arrays
 
 You can also pass an **array of breakpoints** to apply none at multiple specific breakpoints:
@@ -149,13 +157,13 @@ If you were previously using the `SpacingResponsive` object syntax with `'none'`
 **Before:**
 
 ```html
-<lg-card [lgMarginRight]="{ sm: 'none', md: '4' }"></lg-card>
+<lg-card [lgMarginRight]="{ sm: 'none', lg: '4' }"></lg-card>
 ```
 
 **After:**
 
 ```html
-<lg-card lgMarginRight="4" lgMarginRightNoneAt="sm"></lg-card>
+<lg-card lgMarginRight="4" lgMarginRightNoneAt="sm" lgMarginRightNoneAt="md"></lg-card>
 ```
 
 For scenarios with multiple "none" breakpoints:

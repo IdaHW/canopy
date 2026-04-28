@@ -7,7 +7,8 @@ import { LgIconComponent } from '../../icon';
 import { LgAutoplayComponent } from '../auto-play/auto-play.component';
 
 export default {
-  title: 'Components/Carousel/[DEPRECATED]/Examples',
+  title: 'Components/Carousel/Examples',
+  tags: [ 'awaiting-deprecation' ],
   decorators: [
     moduleMetadata({
       imports: [
@@ -150,12 +151,10 @@ const carouselItems = `
 `;
 
 const template = `
-  <h1>[DEPRECATED]</h1>
   <lg-carousel [description]="description" [headingLevel]="headingLevel" [slideDuration]="slideDuration" [loopMode]="loopMode" [autoPlayDelay]="autoPlayDelay" [autoPlay]="autoPlay">${carouselItems}</lg-carousel>
 `;
 
 const defaultTemplate = `
-  <h1>[DEPRECATED]</h1>
   <lg-carousel [description]="description" [headingLevel]="headingLevel" [slideDuration]="slideDuration">${carouselItems}</lg-carousel>
 `;
 
@@ -183,7 +182,6 @@ export const DefaultCarousel = {
 };
 
 const loopEnabledTemplate = `
-  <h1>[DEPRECATED]</h1>
   <lg-carousel [description]="description" [headingLevel]="headingLevel" [slideDuration]="slideDuration" [loopMode]="loopMode">${carouselItems}</lg-carousel>
 `;
 
@@ -211,7 +209,6 @@ export const LoopModeEnabledCarousel = {
 };
 
 const autoPlayEnabledTemplate = `
-  <h1>[DEPRECATED]</h1>
   <lg-carousel [description]="description" [headingLevel]="headingLevel" [slideDuration]="slideDuration" [autoPlayDelay]="5000" [autoPlay]="true">${carouselItems}</lg-carousel>
 `;
 

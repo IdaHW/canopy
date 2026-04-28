@@ -10,6 +10,9 @@ import {
 
 import type { PromoCardVariant } from '../promo-card.interface';
 
+/**
+ * @deprecated Use promotion pattern cards instead. This component will be removed in a future major release (date/version TBC).
+ */
 @Component({
   selector: 'lg-promo-card',
   templateUrl: './promo-card.component.html',
