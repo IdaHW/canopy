@@ -56,7 +56,7 @@ import {
 | `id` | `string` | auto-generated | No | HTML `id` attribute. |
 | `name` | `string` | `null` | Yes | HTML `name` attribute. |
 | `value` | `string` | `null` | Yes | HTML `value` attribute. |
-| `size` | `RadioSize` | `'sm'` | No | Size of the radio button. |
+| `size` | `RadioSize` | `'lg'` | No | Size of the radio button. |
 | `ariaDescribedBy` | `string` | `null` | No | ID of the element that describes this radio button. |
 
 ## LgRadioButtonComponent Outputs
@@ -64,6 +64,19 @@ import {
 | Output | Type | Description |
 |--------|------|-------------|
 | `blur` | `EventEmitter<Event>` | Emitted on blur. |
+
+---
+
+---
+
+## Accessibility
+
+- Always use `lg-radio-group` to group related radio buttons with a clear label.
+- Use `lg-hint` to provide extra context where needed.
+- Ensure all radio buttons have clear, descriptive labels.
+- Set `ariaDescribedBy` to link radio buttons to hint or validation messages.
+- Keyboard users must be able to tab through all radio buttons and select with Space or arrow keys.
+- Only one radio button can be selected at a time within a group.
 
 ---
 
