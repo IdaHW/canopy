@@ -8,7 +8,7 @@
   transition: background-color var(--animation-duration) var(--animation-fn);
   display: flex;
   min-width: var(--button-common-labelled-min-width);
-  height: var(--button-common-labelled-min-height);
+  min-height: var(--button-common-labelled-min-height);
   padding: var(--button-common-labelled-padding-y) var(--button-common-labelled-padding-x);
   justify-content: center;
   align-items: center;
