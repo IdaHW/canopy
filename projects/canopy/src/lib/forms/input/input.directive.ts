@@ -42,14 +42,14 @@ export class LgInputDirective {
   @HostBinding('id')
   id = `lg-input-${this.uniqueId}`;
 
-  @Input()
+  @Input() disabled = false;
+
   @HostBinding('attr.disabled')
   get disabledAttr() {
     return this.disabled
       ? true
       : null;
   }
-  disabled = false;
 
   @Input()
   @HostBinding('attr.aria-describedby')

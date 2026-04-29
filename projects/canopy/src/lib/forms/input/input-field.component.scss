@@ -16,11 +16,6 @@
     display: flex;
     font-weight: var(--font-weight-500);
     align-items: center;
-
-    .lg-icon {
-      height: var(--space-5);
-      width: var(--space-5);
-    }
   }
 
   &--focus &__prefix {
@@ -62,14 +57,13 @@
     border: var(--text-input-rest-border-width) solid var(--text-input-rest-border-colour);
     background: var(--text-input-rest-background-colour);
     margin-top: var(--form-field-gap);
-    height: 3rem;
 
     #{$block}--hover & {
       border-color: var(--text-input-hover-border-colour);
     }
 
     #{$block}--focus & {
-      color: var(--select-focus-colour);
+      color: var(--text-input-focus-colour);
       border: var(--text-input-rest-border-width) solid
         var(--text-input-focus-border-colour);
       background: var(--text-input-focus-background-colour);
@@ -123,6 +117,8 @@
   max-width: 100%;
   background: none;
   padding: var(--text-input-common-padding-y) var(--text-input-common-padding-x);
+  min-height: var(--input-common-scale-xxl);
+  max-height: var(--input-common-scale-xxl);
 
   &[type='number']::-webkit-inner-spin-button,
   &[type='number']::-webkit-outer-spin-button {

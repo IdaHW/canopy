@@ -26,7 +26,7 @@ interface Config {
   label?: string;
   showLabel?: boolean;
   showButtonFirstSuffix?: boolean;
-  showButtonSecondSuffix?: boolean;
+  showExternalButton?: boolean;
   showTextPrefix?: boolean;
   showTextSuffix?: boolean;
   size?: number;
@@ -54,7 +54,7 @@ function createInputStory(args: LgInputFieldComponent) {
         [size]="size"
         [suffix]="suffix"
         [showButtonFirstSuffix]="showButtonFirstSuffix"
-        [showButtonSecondSuffix]="showButtonSecondSuffix"
+        [showExternalButton]="showExternalButton"
         [showTextPrefix]="showTextPrefix"
         [showTextSuffix]="showTextSuffix"
       ></lg-reactive-form>
@@ -77,7 +77,7 @@ function setupInputStoryValues(obj, code, config?: Config) {
     showLabel: true,
     prefix: '£',
     showButtonFirstSuffix: config?.showButtonFirstSuffix,
-    showButtonSecondSuffix: config?.showButtonSecondSuffix,
+    showExternalButton: config?.showExternalButton,
     iconButton: true,
     showTextPrefix: config?.showTextPrefix,
     showTextSuffix: config?.showTextSuffix,
@@ -115,10 +115,10 @@ const inputTemplate = `
       priority="add-on"
     >
       Close
-      <lg-icon name="close"></lg-icon>
+      <lg-icon name="close-spot-outline"></lg-icon>
     </button>
   }
-  @if (showButtonSecondSuffix) {
+  @if (showExternalButton) {
     <button
       lg-button
       lgExternalButton
@@ -180,7 +180,7 @@ class ReactiveFormComponent {
   @Input() showLabel: boolean;
   @Input() prefix: string;
   @Input() showButtonFirstSuffix: boolean;
-  @Input() showButtonSecondSuffix: boolean;
+  @Input() showExternalButton: boolean;
   @Input() showTextPrefix: boolean;
   @Input() showTextSuffix: boolean;
   @Input() size: number;
@@ -273,7 +273,7 @@ export default {
         disable: true,
       },
     },
-    showButtonSecondSuffix: {
+    showExternalButton: {
       table: {
         disable: true,
       },
@@ -369,7 +369,7 @@ export const WithMultipleButtonSuffixes = {
 
 setupInputStoryValues(WithMultipleButtonSuffixes, inputTemplate, {
   showButtonFirstSuffix: true,
-  showButtonSecondSuffix: true,
+  showExternalButton: true,
 });
 
 export const WithTextPrefix = {
