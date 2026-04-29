@@ -18,6 +18,7 @@ const buttonVariants = [ 'primary', 'secondary', 'link' ];
       [fullWidth]="fullWidth"
       [iconButton]="iconButton"
       [backIcon]="backIcon"
+      [backIconName]="backIconName"
       [loading]="loading"
       [priority]="priority"
     >
@@ -51,6 +52,7 @@ class ButtonComponentExampleComponent {
   @Input() disabled: boolean;
   @Input() fullWidth: boolean;
   @Input() backIcon: boolean;
+  @Input() backIconName: IconName = 'arrow-left';
   @Input() icon: IconName;
   @Input() iconButton: boolean;
   @Input() loading: boolean;
@@ -95,10 +97,23 @@ export default {
       },
     },
     backIcon: {
-      description: 'Display arrow-left icon on the left side of the button',
+      description: 'Display icon on the left side of the button',
       control: {
         type: 'boolean',
       },
+    },
+    backIconName: {
+      description: 'Icon name for the left icon (only for link priority)',
+      options: lgIconsArray.map(i => i.name),
+      table: {
+        type: {
+          summary: 'IconName',
+        },
+      },
+      control: {
+        type: 'select',
+      },
+      if: { arg: 'priority', eq: 'link' },
     },
     icon: {
       description:
@@ -163,6 +178,7 @@ const defaultArgValues = {
   iconButton: false,
   loading: false,
   backIcon: false,
+  backIconName: 'arrow-left' as IconName,
   icon: null,
 };
 
@@ -172,6 +188,7 @@ const buttonTemplate = `
     [fullWidth]="fullWidth"
     [iconButton]="iconButton"
     [backIcon]="backIcon"
+    [backIconName]="backIconName"
     [icon]="icon"
     [loading]="loading"
     [priority]="priority"
@@ -272,6 +289,8 @@ export const Link = {
   args: {
     ...defaultArgValues,
     priority: 'link',
+    backIcon: true,
+    backIconName: 'chevron-left',
   },
   globals: {
     backgrounds: { value: setBackground('link') },

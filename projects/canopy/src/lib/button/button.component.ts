@@ -13,7 +13,7 @@ import {
 } from '@angular/core';
 import { NgTemplateOutlet } from '@angular/common';
 
-import { LgIconComponent } from '../icon';
+import { IconName, LgIconComponent } from '../icon';
 import { LgMarginDirective } from '../spacing';
 import { LgSpinnerComponent } from '../spinner';
 
@@ -30,6 +30,7 @@ export class LgButtonComponent implements AfterContentInit, AfterViewInit {
   private renderer = inject(Renderer2);
   private readonly hostElement = inject(ElementRef);
   private _backIcon = false;
+  private _backIconName: IconName = 'arrow-left';
 
   @ContentChildren(LgIconComponent) projectedIcons: QueryList<LgIconComponent>;
 
@@ -77,6 +78,14 @@ export class LgButtonComponent implements AfterContentInit, AfterViewInit {
   }
   get backIcon(): boolean {
     return this._backIcon;
+  }
+
+  @Input()
+  set backIconName(value: IconName) {
+    this._backIconName = value;
+  }
+  get backIconName(): IconName {
+    return this._backIconName;
   }
 
   @HostBinding('class.lg-btn--icon-left') get leftIconClass(): boolean {
