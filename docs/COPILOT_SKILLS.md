@@ -14,24 +14,24 @@ Skills are installed via the [`skills` CLI](https://www.npmjs.com/package/skills
 npx skills add Legal-and-General/canopy --list
 
 # Install a specific migration skill
-npx skills add Legal-and-General/canopy --skill canopy-v23-migration
+npx skills add Legal-and-General/canopy --skill canopy-v24-migration
 
 # List all available best practice skills
-npx skills add Legal-and-General/canopy/skills/best-practice#v23.0.0 --list
+npx skills add Legal-and-General/canopy/skills/best-practice#vx.x.x --list
 
 # Install a specific best practice skill
-npx skills add Legal-and-General/canopy/skills/best-practice#v23.0.0 --skill canopy-button
+npx skills add Legal-and-General/canopy/skills/best-practice#vx.x.x --skill canopy-button
 
 # Install all best practice skills
-npx skills add Legal-and-General/canopy/skills/best-practice#v23.0.0 --skill '*'
+npx skills add Legal-and-General/canopy/skills/best-practice#vx.x.x --skill '*'
 ```
 
 > **Important — best practice skills:** Always pin the install to the git tag that matches the version of Canopy installed in your project. This ensures the skill content reflects the API and behaviour of that release rather than the latest code on `main`, which may contain unreleased changes.
 >
 > ```bash
-> # Replace v23.0.0 with the Canopy version in your package.json
-> npx skills add Legal-and-General/canopy/skills/best-practice#v23.0.0 --skill canopy-button
-> npx skills add Legal-and-General/canopy/skills/best-practice#v23.0.0 --skill '*'
+> # Replace vx.x.x with the Canopy version in your package.json
+> npx skills add Legal-and-General/canopy/skills/best-practice#vx.x.x --skill canopy-button
+> npx skills add Legal-and-General/canopy/skills/best-practice#vx.x.x --skill '*'
 > ```
 
 ---
@@ -41,10 +41,11 @@ npx skills add Legal-and-General/canopy/skills/best-practice#v23.0.0 --skill '*'
 These skills guide your AI coding agent to apply breaking changes after a major version upgrade.
 
 Once installed, ask your agent:
-> "Apply the Canopy v23 migration to my project."
+> "Apply the Canopy v24 migration to my project."
 
 | Skill | Migrates | Release notes |
 |---|---|---|
+| `canopy-v24-migration` | v23 → v24 | [v24.0.0](https://github.com/Legal-and-General/canopy/releases/tag/v24.0.0) |
 | `canopy-v23-migration` | v22 → v23 | [v23.0.0](https://github.com/Legal-and-General/canopy/releases/tag/v23.0.0) |
 | `canopy-v22-migration` | v21 → v22 | [v22.0.0](https://github.com/Legal-and-General/canopy/releases/tag/v22.0.0) |
 | `canopy-v21-migration` | v20 → v21 | [v21.0.0](https://github.com/Legal-and-General/canopy/releases/tag/v21.0.0) |
@@ -54,6 +55,8 @@ Once installed, ask your agent:
 ## Best Practice Skills
 
 These skills guide your AI coding agent to use Canopy components and foundations correctly — covering imports, inputs, dos and don'ts, accessibility, and design constraints.
+
+> **Note:** Best practice skills are available from tag `v24.0.0` onwards.
 
 Once installed, your agent will automatically apply the best practices whenever it works with the relevant component. For example, after installing `canopy-button` you can ask:
 > "Add a primary button that submits the form."
@@ -137,6 +140,7 @@ The agent reads the `guide.mdx` documentation, stories, and documentation images
 | `canopy-forms-filter-buttons` | Filter radio/checkbox, max 10 options, default deselected | — |
 | **Utilities** | | |
 | `canopy-brand-icon` | `LgBrandIconComponent`, sizes, colour inputs, global branding | — |
+| `canopy-flag-icon` | `LgFlagIconComponent`, country flags, usage with country names | — |
 | `canopy-icon` | `LgIconComponent`, sizing, colour, aria-hidden | — |
 | `canopy-focus` | `LgFocusDirective`, programmatic focus | — |
 | `canopy-shadow` | `LgShadowDirective`, hover state | — |
