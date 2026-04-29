@@ -24,7 +24,6 @@ describe('LgFooterNavComponent', () => {
     `);
 
     component = fixture.point.componentInstance;
-    component.variant = 'secondary';
     footerNavItemNativeEl = fixture.nativeElement.firstChild;
     fixture.detectChanges();
   });
@@ -39,12 +38,6 @@ describe('LgFooterNavComponent', () => {
 
   it('should add the role listitem', () => {
     expect(footerNavItemNativeEl.getAttribute('role')).toBe('listitem');
-  });
-
-  it('should add the modifier class', () => {
-    expect(footerNavItemNativeEl.getAttribute('class')).toContain(
-      'lg-footer-nav-item--secondary',
-    );
   });
 
   it('should add a class to the inner element', () => {
@@ -64,7 +57,6 @@ describe('LgFooterNavComponent', () => {
       `);
 
       component = fixture.point.componentInstance;
-      component.variant = 'secondary';
       footerNavItemNativeEl = fixture.nativeElement.firstChild;
       fixture.detectChanges();
     });
@@ -92,7 +84,6 @@ describe('LgFooterNavComponent', () => {
     `);
 
     component = fixture.point.componentInstance;
-    component.variant = 'secondary';
     fixture.detectChanges();
 
     expect(console.error).toHaveBeenCalledWith(

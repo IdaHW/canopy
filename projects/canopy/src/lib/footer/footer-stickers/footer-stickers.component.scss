@@ -1,0 +1,7 @@
+@use '../../../styles/mixins';
+
+.lg-footer-stickers {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--footer-link-group-link-gap);
+}

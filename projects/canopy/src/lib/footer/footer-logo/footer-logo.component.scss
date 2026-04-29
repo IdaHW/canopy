@@ -10,11 +10,7 @@
   }
 
   &__img {
-    width: var(--footer-logo-width);
-
-    @include mixins.lg-breakpoint('lg') {
-      width: var(--footer-logo-width-lg);
-    }
+    width: var(--footer-logo-size);
   }
 
   &__second-img {
