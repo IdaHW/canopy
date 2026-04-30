@@ -2,10 +2,9 @@ import {
   AfterContentInit,
   ChangeDetectionStrategy,
   Component,
-  ContentChildren,
   ElementRef,
-  QueryList,
   ViewEncapsulation,
+  inject,
 } from '@angular/core';
 
 @Component({
@@ -23,14 +22,15 @@ import {
 })
 export class LgFooterSocialComponent implements AfterContentInit {
   private static readonly MAX_SOCIAL_LINKS = 8;
-
-  @ContentChildren('a', { descendants: true, read: ElementRef })
-  links: QueryList<ElementRef>;
+  private hostElement = inject(ElementRef);
 
   ngAfterContentInit(): void {
-    if (this.links.length > LgFooterSocialComponent.MAX_SOCIAL_LINKS) {
+    const hostEl = this.hostElement.nativeElement as HTMLElement;
+    const links = hostEl.querySelectorAll('a, button');
+
+    if (links.length > LgFooterSocialComponent.MAX_SOCIAL_LINKS) {
       console.warn(
-        `LgFooterSocialComponent: Maximum of ${LgFooterSocialComponent.MAX_SOCIAL_LINKS} social links allowed. Found ${this.links.length}.`,
+        `LgFooterSocialComponent: Maximum of ${LgFooterSocialComponent.MAX_SOCIAL_LINKS} social links allowed. Found ${links.length}.`,
       );
     }
   }

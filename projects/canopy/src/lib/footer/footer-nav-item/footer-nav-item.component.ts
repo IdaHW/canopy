@@ -34,10 +34,12 @@ export class LgFooterNavItemComponent implements AfterContentChecked {
       if (childEl) {
         this.renderer.addClass(childEl, 'lg-footer-action');
 
-        if (childEl.tagName === 'BUTTON') {
+        if (childEl.tagName === 'A') {
+          this.renderer.setAttribute(childEl, 'rel', 'noopener');
+        } else if (childEl.tagName === 'BUTTON') {
           this.renderer.addClass(childEl, 'lg-footer-action--button');
           this.renderer.setAttribute(childEl, 'type', 'button');
-        } else if (childEl.tagName !== 'A' && childEl.tagName !== 'BUTTON') {
+        } else {
           console.error(
             `Unsupported tag: ${childEl.tagName}. lg-footer-nav-item only supports A and BUTTON.`,
           );

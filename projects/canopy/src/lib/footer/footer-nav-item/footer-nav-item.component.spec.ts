@@ -46,6 +46,10 @@ describe('LgFooterNavComponent', () => {
     );
   });
 
+  it('should add rel="noopener" to anchor elements', () => {
+    expect(footerNavItemNativeEl.children[0].getAttribute('rel')).toBe('noopener');
+  });
+
   describe('when the inner element is a button', () => {
     beforeEach(() => {
       ngMocks.flushTestBed();

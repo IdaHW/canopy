@@ -29,10 +29,13 @@ export class LgFooterComponent implements AfterContentInit {
   footerLogos: QueryList<LgFooterLogoComponent>;
 
   ngAfterContentInit(): void {
+    const totalLogos = this.footerLogos.length;
+
     this.footerLogos.forEach((footerLogo, i) => {
-      footerLogo.class = i === 0
-        ? 'lg-footer-logo__img'
-        : 'lg-footer-logo__second-img';
+      footerLogo.class =
+        i === totalLogos - 1
+          ? 'lg-footer-logo__img'
+          : 'lg-footer-logo__second-img';
     });
   }
 }

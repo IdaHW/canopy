@@ -1,14 +1,4 @@
-import {
-  AfterViewChecked,
-  ChangeDetectionStrategy,
-  Component,
-  ContentChildren,
-  forwardRef,
-  QueryList,
-  ViewEncapsulation,
-} from '@angular/core';
-
-import { LgFooterNavItemComponent } from '../footer-nav-item/footer-nav-item.component';
+import { ChangeDetectionStrategy, Component, ViewEncapsulation } from '@angular/core';
 
 @Component({
   selector: 'lg-footer-nav',
@@ -23,19 +13,4 @@ import { LgFooterNavItemComponent } from '../footer-nav-item/footer-nav-item.com
   },
   standalone: true,
 })
-export class LgFooterNavComponent implements AfterViewChecked {
-  private currentFooterNavItemLength: number;
-
-  @ContentChildren(forwardRef(() => LgFooterNavItemComponent), {
-    descendants: true,
-  })
-  footerNavItemComponents: QueryList<LgFooterNavItemComponent>;
-
-  ngAfterViewChecked(): void {
-    const footerNavItemLength = this.footerNavItemComponents?.toArray().length;
-
-    if (footerNavItemLength && footerNavItemLength !== this.currentFooterNavItemLength) {
-      this.currentFooterNavItemLength = footerNavItemLength;
-    }
-  }
-}
+export class LgFooterNavComponent {}

@@ -228,8 +228,7 @@ Displays the main footer logo. For co-branding, use two `lg-footer-logo` compone
 - Override logo widths with CSS custom properties:
 
 ```css
---footer-logo-width: 120px;
---footer-logo-width-lg: 160px;
+--footer-logo-size: 120px;
 --footer-second-logo-width: 80px;
 --footer-second-logo-width-lg: 100px;
 ```
