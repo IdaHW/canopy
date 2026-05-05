@@ -75,7 +75,7 @@ import {
 - Use `lg-hint` to provide extra context where needed.
 - Ensure all radio buttons have clear, descriptive labels.
 - Set `ariaDescribedBy` to link radio buttons to hint or validation messages.
-- Keyboard users must be able to tab through all radio buttons and select with Space or arrow keys.
+- Keyboard users use Tab to move into/out of the radio group, and arrow keys to navigate between options and select them.
 - Only one radio button can be selected at a time within a group.
 
 ---

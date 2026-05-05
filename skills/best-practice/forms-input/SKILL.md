@@ -72,6 +72,7 @@ Use the `lgSuffix` directive for buttons inside the input border (add-on variant
   Search
   <input lgInput formControlName="query" />
   <button lg-button lgSuffix [iconButton]="true" priority="add-on">
+    Clear
     <lg-icon name="close"></lg-icon>
   </button>
 </lg-input-field>
@@ -101,7 +102,7 @@ You can combine multiple suffixes with an external button:
   <input lgInput formControlName="amount" />
   <span lgSuffix>%</span>
   <button lg-button lgSuffix [iconButton]="true" priority="add-on">
-    Close
+    Clear
     <lg-icon name="close" />
   </button>
   <button lg-button lgExternalButton priority="primary">
