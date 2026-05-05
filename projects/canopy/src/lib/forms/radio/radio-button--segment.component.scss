@@ -6,14 +6,16 @@
   padding: var(--segment-button-common-padding-y) var(--segment-button-common-padding-x);
   justify-content: center;
   align-items: center;
-  flex: 1 0 0;
   border-radius: var(--segment-button-common-border-radius);
   background: var(--segment-button-rest-background-colour);
   transition: all var(--animation-duration) var(--animation-fn);
-  margin-bottom: var(--segment-control-common-gap);
 
-  @include mixins.lg-breakpoint('md') {
-    margin-bottom: 0;
+  @include mixins.lg-breakpoint('md', 'max-width') {
+    margin-bottom: var(--segment-control-common-gap);
+
+    &:last-child {
+      margin-bottom: 0;
+    }
   }
 
   .lg-radio-button__label {
@@ -22,6 +24,7 @@
     align-items: center;
     justify-content: center;
     cursor: pointer;
+    white-space: nowrap;
 
     &::before,
     &::after {

@@ -9,10 +9,12 @@
   border: var(--segment-control-common-border-width) solid
     var(--segment-control-common-border-colour);
   background: var(--segment-control-common-background-colour);
-  margin-top: var(--form-field-gap);
+  grid-auto-flow: row;
+  grid-auto-columns: 1fr;
 
   @include mixins.lg-breakpoint('md') {
-    display: inline-flex;
+    display: inline-grid;
+    grid-auto-flow: column;
   }
 
   .lg-radio-group--error & {

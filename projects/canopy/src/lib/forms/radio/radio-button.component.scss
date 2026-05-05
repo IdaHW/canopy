@@ -1,13 +1,12 @@
 @use '../../../styles/mixins';
 
 .lg-radio-button__hint {
-  padding-left: var(--space-6);
+  padding-left: var(--radio-scale-lg-gap);
 }
 
 .lg-radio-button--radio {
   display: block;
   margin-bottom: var(--radio-group-lg-gap);
-  margin-top: var(--form-field-gap);
 }
 
 .lg-radio-button--radio.lg-radio-button--sm {

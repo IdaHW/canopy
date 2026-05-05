@@ -19,8 +19,6 @@
 }
 
 .lg-toggle__label--switch {
-  margin-top: var(--form-field-gap);
-
   &::before,
   &::after {
     background-color: var(--toggle-switch-off-dot-bg-color);
