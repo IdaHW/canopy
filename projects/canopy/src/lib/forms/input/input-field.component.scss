@@ -56,6 +56,8 @@
     border-radius: var(--text-input-common-border-radius);
     border: var(--text-input-rest-border-width) solid var(--text-input-rest-border-colour);
     background: var(--text-input-rest-background-colour);
+    min-height: var(--input-common-scale-xxl);
+    max-height: var(--input-common-scale-xxl);
 
     #{$block}--hover & {
       border-color: var(--text-input-hover-border-colour);

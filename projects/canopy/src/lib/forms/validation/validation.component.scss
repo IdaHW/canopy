@@ -4,6 +4,7 @@
   display: flex;
   align-items: center;
   color: var(--label-and-hint-validation-message-colour);
+  margin-bottom: var(--form-field-gap);
 
   .lg-icon {
     width: var(--content-icon-size-sm);

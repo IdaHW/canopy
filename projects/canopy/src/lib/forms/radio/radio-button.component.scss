@@ -4,6 +4,10 @@
   padding-left: var(--radio-scale-lg-gap);
 }
 
+.lg-radio-button__label--sm ~ .lg-radio-button__hint {
+  padding-left: var(--radio-scale-sm-gap);
+}
+
 .lg-radio-button--radio {
   display: block;
   margin-bottom: var(--radio-group-lg-gap);

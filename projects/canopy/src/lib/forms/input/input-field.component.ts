@@ -140,6 +140,9 @@ export class LgInputFieldComponent implements AfterContentInit, OnDestroy {
 
   @ContentChild(LgButtonComponent) buttonElement: LgButtonComponent;
 
+  @ContentChildren(LgButtonComponent, { descendants: true })
+  allButtonElements: QueryList<LgButtonComponent>;
+
   @ContentChildren(LgSuffixDirective)
   set suffixChildren(elements: QueryList<LgSuffixDirective>) {
     elements.forEach(element => {
@@ -181,10 +184,16 @@ export class LgInputFieldComponent implements AfterContentInit, OnDestroy {
   }
 
   ngAfterContentInit(): void {
-    if (this.inputElement && this.buttonElement) {
-      this.inputElement.control.statusChanges.subscribe(status => {
-        this.buttonElement.disabled = status === 'DISABLED';
-      });
+    if (this.inputElement && this.allButtonElements) {
+      this.disabledStateChanges = this.inputElement.control.statusChanges.subscribe(
+        status => {
+          const isDisabled = status === 'DISABLED';
+
+          this.allButtonElements.forEach(button => {
+            button.disabled = isDisabled;
+          });
+        },
+      );
     }
   }
 
