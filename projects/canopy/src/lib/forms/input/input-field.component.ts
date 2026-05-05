@@ -184,7 +184,7 @@ export class LgInputFieldComponent implements AfterContentInit, OnDestroy {
   }
 
   ngAfterContentInit(): void {
-    if (this.inputElement && this.allButtonElements) {
+    if (this.inputElement?.control && this.allButtonElements) {
       this.disabledStateChanges = this.inputElement.control.statusChanges.subscribe(
         status => {
           const isDisabled = status === 'DISABLED';
