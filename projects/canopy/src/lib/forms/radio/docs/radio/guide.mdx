@@ -26,6 +26,19 @@ and in your HTML:
 
 <Source of={RadioStories.Radio} />
 
+### Optional fields
+
+For optional fields, use a `<span>` element with the `lg-label--optional` class to indicate that the field is not required:
+
+```html
+<lg-radio-group formControlName="colour">
+  Favourite colour
+  <span class="lg-label--optional">(optional)</span>
+  <lg-radio-button value="red">Red</lg-radio-button>
+  <lg-radio-button value="blue">Blue</lg-radio-button>
+</lg-radio-group>
+```
+
 ## How it works
 
 A radio button contains a circular toggle and a label, and will always appear in a radio group with a minimum of 2 buttons.
