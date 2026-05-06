@@ -138,8 +138,6 @@ export class LgInputFieldComponent implements AfterContentInit, OnDestroy {
     this._validationElement = element;
   }
 
-  @ContentChild(LgButtonComponent) buttonElement: LgButtonComponent;
-
   @ContentChildren(LgButtonComponent, { descendants: true })
   allButtonElements: QueryList<LgButtonComponent>;
 
@@ -185,15 +183,18 @@ export class LgInputFieldComponent implements AfterContentInit, OnDestroy {
 
   ngAfterContentInit(): void {
     if (this.inputElement?.control && this.allButtonElements) {
-      this.disabledStateChanges = this.inputElement.control.statusChanges.subscribe(
-        status => {
-          const isDisabled = status === 'DISABLED';
+      const updateDisabledState = (status: string) => {
+        const isDisabled = status === 'DISABLED';
 
-          this.allButtonElements.forEach(button => {
-            button.disabled = isDisabled;
-          });
-        },
-      );
+        this.allButtonElements.forEach(button => {
+          button.disabled = isDisabled;
+        });
+      };
+
+      updateDisabledState(this.inputElement.control.status);
+
+      this.disabledStateChanges =
+        this.inputElement.control.statusChanges.subscribe(updateDisabledState);
     }
   }
 
