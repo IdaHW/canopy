@@ -22,6 +22,21 @@ and in your HTML:
 
 <Source of={SelectStories.Select} />
 
+### Optional fields
+
+For optional fields, use a `<span>` element with the `lg-label--optional` class to indicate that the field is not required:
+
+```html
+<lg-select-field>
+  Country
+  <span class="lg-label--optional">(optional)</span>
+  <select lgSelect formControlName="country">
+    <option value="">Select</option>
+    <option value="uk">United Kingdom</option>
+  </select>
+</lg-select-field>
+```
+
 ## How it works
 
 The select component controls custom select box styling and linking the label and field.

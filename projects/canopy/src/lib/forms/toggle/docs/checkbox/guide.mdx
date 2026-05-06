@@ -54,6 +54,19 @@ and in your HTML:
 </lg-checkbox-group>
 ```
 
+### Optional fields
+
+For optional fields, use a `<span>` element with the `lg-label--optional` class to indicate that the field is not required:
+
+```html
+<lg-checkbox-group formControlName="colors">
+  Select your colours
+  <span class="lg-label--optional">(optional)</span>
+  <lg-toggle value="red">Red</lg-toggle>
+  <lg-toggle value="yellow">Yellow</lg-toggle>
+</lg-checkbox-group>
+```
+
 ## How it works
 
 On click, the checkbox is filled with a 'tick' to indicate a state of confirmation. The checkbox can also be un-checked by clicking again to remove the 'tick'.
