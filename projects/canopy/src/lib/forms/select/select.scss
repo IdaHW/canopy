@@ -3,6 +3,7 @@
 .lg-select {
   @include mixins.lg-typography-default;
 
+  cursor: pointer;
   border-radius: var(--text-input-common-border-radius);
   border: var(--text-input-rest-border-width) solid var(--select-rest-border-colour);
   background: var(--select-rest-background-colour);

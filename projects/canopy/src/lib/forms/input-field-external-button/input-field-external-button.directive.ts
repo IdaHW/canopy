@@ -3,11 +3,11 @@ import { Directive, HostBinding, Input } from '@angular/core';
 let nextUniqueId = 0;
 
 @Directive({
-  selector: '[lgExternalButton]',
+  selector: '[lgInputFieldExternalButton]',
   standalone: true,
 })
-export class LgExternalButtonDirective {
+export class LgInputFieldExternalButtonDirective {
   @Input()
   @HostBinding('attr.id')
-  id = `lg-external-button-${nextUniqueId++}`;
+  id = `lg-input-field-external-button-${nextUniqueId++}`;
 }
