@@ -67,8 +67,6 @@ import {
 
 ---
 
----
-
 ## Accessibility
 
 - Always use `lg-radio-group` to group related radio buttons with a clear label.

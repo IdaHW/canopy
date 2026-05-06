@@ -59,7 +59,7 @@ Use Angular reactive forms. The `lgSelect` directive goes on the `<select>` elem
 
 ## Accessibility
 
-- Always include a `<label>` element linked to the select via `lg-select-field`.
+- Always provide label text inside `lg-select-field` as projected content — the component renders the associated `<label>` element automatically.
 - Use `lg-hint` to provide extra context where needed.
 - Provide a meaningful default option or empty value ("Select" or "Choose an option").
 - Ensure option text is clear and descriptive.
