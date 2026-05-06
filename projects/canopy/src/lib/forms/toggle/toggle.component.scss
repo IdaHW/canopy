@@ -14,6 +14,7 @@
   align-items: center;
   position: relative;
   font-weight: var(--font-weight-400);
+  cursor: pointer;
 
   &:has(> .lg-toggle__checkbox:hover) {
     color: var(--checkbox-hover-label-colour);
@@ -21,6 +22,7 @@
 
   .lg-toggle__input:disabled + & {
     color: var(--checkbox-disabled-label-colour);
+    cursor: not-allowed;
   }
 }
 

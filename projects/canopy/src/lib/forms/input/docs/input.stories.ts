@@ -13,7 +13,7 @@ import { LgInputDirective } from '../input.directive';
 import { LgSuffixDirective } from '../../../suffix';
 import { LgHintComponent } from '../../hint';
 import { LgIconComponent } from '../../../icon';
-import { LgExternalButtonDirective } from '../../../external-button';
+import { LgInputFieldExternalButtonDirective } from '../../input-field-external-button';
 
 interface Config {
   block?: boolean;
@@ -121,7 +121,7 @@ const inputTemplate = `
   @if (showExternalButton) {
     <button
       lg-button
-      lgExternalButton
+      lgInputFieldExternalButton
       [iconButton]="iconButton"
       [priority]="buttonVariant"
     >
@@ -151,7 +151,7 @@ const inputTemplate = `
     LgButtonComponent,
     LgIconComponent,
     LgHintComponent,
-    LgExternalButtonDirective,
+    LgInputFieldExternalButtonDirective,
   ],
 })
 class ReactiveFormComponent {

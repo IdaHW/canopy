@@ -2,20 +2,20 @@ import { Component, DebugElement } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 
-import { LgExternalButtonDirective } from './external-button.directive';
+import { LgInputFieldExternalButtonDirective } from './input-field-external-button.directive';
 
 @Component({
-  template: ` <button lgExternalButton>Button 1</button>
-    <button lgExternalButton>Button 2</button>
-    <button lgExternalButton [id]="customId">Button 3</button>`,
+  template: ` <button lgInputFieldExternalButton>Button 1</button>
+    <button lgInputFieldExternalButton>Button 2</button>
+    <button lgInputFieldExternalButton [id]="customId">Button 3</button>`,
   standalone: true,
-  imports: [ LgExternalButtonDirective ],
+  imports: [ LgInputFieldExternalButtonDirective ],
 })
 class TestComponent {
   customId = 'custom-id';
 }
 
-describe('LgExternalButtonDirective', () => {
+describe('LgInputFieldExternalButtonDirective', () => {
   let fixture: ComponentFixture<TestComponent>;
   let buttonElements: Array<DebugElement>;
 
@@ -28,7 +28,7 @@ describe('LgExternalButtonDirective', () => {
     fixture.detectChanges();
 
     buttonElements = fixture.debugElement.queryAll(
-      By.directive(LgExternalButtonDirective),
+      By.directive(LgInputFieldExternalButtonDirective),
     );
   });
 
@@ -40,8 +40,8 @@ describe('LgExternalButtonDirective', () => {
     const button1 = buttonElements[0].nativeElement;
     const button2 = buttonElements[1].nativeElement;
 
-    expect(button1.id).toMatch(/^lg-external-button-\d+$/);
-    expect(button2.id).toMatch(/^lg-external-button-\d+$/);
+    expect(button1.id).toMatch(/^lg-input-field-external-button-\d+$/);
+    expect(button2.id).toMatch(/^lg-input-field-external-button-\d+$/);
     expect(button1.id).not.toBe(button2.id);
   });
 

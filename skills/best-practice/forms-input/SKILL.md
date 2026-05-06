@@ -82,14 +82,13 @@ Use the `lgSuffix` directive for buttons inside the input border (add-on variant
 
 ## External Button
 
-Use the `lgExternalButton` directive for buttons outside the input border (e.g., search or submit).
+Use the `lgInputFieldExternalButton` directive for buttons outside the input border (e.g., search or submit).
 
 ```html
 <lg-input-field>
   Search
   <input lgInput formControlName="query" />
-  <button lg-button lgExternalButton priority="primary">
-    Search
+  <button lg-button lgInputFieldExternalButton priority="primary">
   </button>
 </lg-input-field>
 ```
@@ -105,7 +104,7 @@ You can combine multiple suffixes with an external button:
     Clear
     <lg-icon name="close" />
   </button>
-  <button lg-button lgExternalButton priority="primary">
+  <button lg-button lgInputFieldExternalButton priority="primary">
     Submit
   </button>
 </lg-input-field>
