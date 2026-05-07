@@ -2,9 +2,12 @@
 
 .lg-footer {
   background-color: var(--footer-background-colour);
-  padding: var(--footer-padding-y) var(--footer-padding-x);
-  display: flex;
-  flex-direction: column;
+
+  &__wrapper {
+    padding: var(--footer-padding-y) var(--footer-padding-x);
+    display: flex;
+    flex-direction: column;
+  }
 
   &__links {
     margin-bottom: var(--footer-gap);

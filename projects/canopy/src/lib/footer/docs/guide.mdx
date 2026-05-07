@@ -28,68 +28,6 @@ and in your HTML:
 
 <Source of={FooterStories.StandardFooter} />
 
-## Migration Guide
-
-  The footer component has been updated to simplify its structure and add new features.
-
-### Changes
-
-1. **Primary and secondary links merged**: The `variant` input has been removed from `lg-footer-nav`. All links now go in a single `lg-footer-nav` component.
-
-2. **New components added**:
-   - `lg-footer-social` - For social media icons (maximum 8)
-   - `lg-footer-stickers` - For award badges and co-branding logos
-   - `lg-footer-footnote` - For disclaimers and floating text
-
-### Before (deprecated)
-
-```html
-<footer lg-footer>
-  <lg-footer-nav variant="primary">
-    <lg-footer-nav-item>
-      <a href="/account">My account</a>
-    </lg-footer-nav-item>
-  </lg-footer-nav>
-
-  <lg-footer-nav variant="secondary">
-    <lg-footer-nav-item>
-      <a href="/privacy">Privacy</a>
-    </lg-footer-nav-item>
-  </lg-footer-nav>
-
-  <lg-footer-logo src="logo.svg" alt="Company"></lg-footer-logo>
-  <lg-footer-copyright>© Company 2024</lg-footer-copyright>
-</footer>
-```
-
-### After (new structure)
-
-```html
-<footer lg-footer>
-  <lg-footer-footnote>
-    Important disclaimer text
-  </lg-footer-footnote>
-
-  <lg-footer-social>
-    <a href="https://facebook.com/company" aria-label="Facebook">
-      <lg-icon name="facebook" size="sm"></lg-icon>
-    </a>
-  </lg-footer-social>
-
-  <lg-footer-nav>
-    <lg-footer-nav-item>
-      <a href="/account">My account</a>
-    </lg-footer-nav-item>
-    <lg-footer-nav-item>
-      <a href="/privacy">Privacy</a>
-    </lg-footer-nav-item>
-  </lg-footer-nav>
-
-  <lg-footer-logo src="logo.svg" alt="Company"></lg-footer-logo>
-  <lg-footer-copyright>© Company 2024</lg-footer-copyright>
-</footer>
-```
-
 ## Variants
 
 ### With social icons
@@ -100,7 +38,7 @@ Social icons can be added using the `lg-footer-social` component. Maximum of 8 i
 
 ### With stickers
 
-Award badges and co-branding logos can be added using `lg-footer-stickers`. These appear below the main footer content.
+Award badges and co-branding logos can be added using `lg-footer-stickers`. These appear alongside the logo.
 
 <Source of={FooterStories.FooterWithStickers} />
 
@@ -115,12 +53,6 @@ All features combined, including footnote area for disclaimers:
 Co-branding can be achieved by adding two `lg-footer-logo` components. The logos will display side by side on both mobile and desktop, with the L&G logo (primary) on the left and the partner logo (secondary) on the right.
 
 <Source of={FooterStories.CoBrandedFooter} />
-
-### Compact
-
-A compact layout can be achieved by using only links and copyright:
-
-<Source of={FooterStories.CompactFooter} />
 
 ## Additional development details
 
@@ -156,7 +88,7 @@ Icons should be wrapped in anchor or button elements with appropriate `aria-labe
 
 ### LgFooterStickersComponent
 
-Container for award badges, certifications, or co-branding partner logos.
+Container for award badges, certifications, or co-branding partner logos. Renders alongside the logo inside the footer's organisation area.
 
 ```html
 <lg-footer-stickers>

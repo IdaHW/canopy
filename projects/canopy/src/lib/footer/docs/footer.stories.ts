@@ -19,12 +19,6 @@ export const primaryLinks = [
   { id: 'link-6', text: 'Security', href: 'https://somecompany.com/security' },
   { id: 'link-7', text: 'Legal and regulatory', href: 'https://somecompany.com/legal' },
   { id: 'link-8', text: 'Privacy', href: 'https://somecompany.com/privacy' },
-  {
-    id: 'button-1',
-    text: 'Cookie settings',
-    isButton: true,
-    class: 'cookie-settings-button',
-  },
 ];
 
 export const socialLinks = [
@@ -133,7 +127,7 @@ export const StandardFooter = {
   args: {
     logo: 'legal-and-general-logo.svg',
     logoAlt: 'Company name',
-    copyright: '© Some Company plc 2024',
+    copyright: '© Some Company plc',
     primaryLinks,
   },
   parameters: {
@@ -182,7 +176,7 @@ export const FooterWithSocial = {
   args: {
     logo: 'legal-and-general-logo.svg',
     logoAlt: 'Company name',
-    copyright: '© Some Company plc 2024',
+    copyright: '© Some Company plc',
     primaryLinks,
     socialLinks,
   },
@@ -234,7 +228,7 @@ export const FooterWithStickers = {
   args: {
     logo: 'legal-and-general-logo.svg',
     logoAlt: 'Company name',
-    copyright: '© Some Company plc 2024',
+    copyright: '© Some Company plc',
     primaryLinks,
   },
   parameters: {
@@ -298,7 +292,7 @@ export const FullFeaturedFooter = {
   args: {
     logo: 'legal-and-general-logo.svg',
     logoAlt: 'Company name',
-    copyright: '© Some Company plc 2026',
+    copyright: '© Some Company plc',
     primaryLinks,
     socialLinks,
   },
@@ -339,68 +333,13 @@ export const CoBrandedFooter = {
     logoAlt: 'Company name',
     secondaryLogo: 'dummy-logo.svg',
     secondaryLogoAlt: 'Secondary company name',
-    copyright: '© Some Company plc 2024',
+    copyright: '© Some Company plc',
     primaryLinks,
   },
   parameters: {
     docs: {
       source: {
         code: coBrandedTemplate,
-      },
-    },
-  },
-};
-
-const compactTemplate = `
-<footer lg-footer>
-  <lg-footer-nav>
-    @for (link of primaryLinks.slice(4); track link.id) {
-      <lg-footer-nav-item>
-        <a [href]="link.href" [id]="link.id" target="_blank">{{ link.text }}</a>
-      </lg-footer-nav-item>
-    }
-  </lg-footer-nav>
-
-  <lg-footer-copyright>{{ copyright }}</lg-footer-copyright>
-</footer>
-`;
-
-export const CompactFooter = {
-  name: 'Compact',
-  render: (args: LgFooterComponent) => ({
-    props: args,
-    template: compactTemplate,
-  }),
-  args: {
-    copyright: '© Some Company plc 2024',
-    primaryLinks,
-  },
-  argTypes: {
-    logo: {
-      table: {
-        disable: true,
-      },
-    },
-    logoAlt: {
-      table: {
-        disable: true,
-      },
-    },
-    secondaryLogo: {
-      table: {
-        disable: true,
-      },
-    },
-    secondaryLogoAlt: {
-      table: {
-        disable: true,
-      },
-    },
-  },
-  parameters: {
-    docs: {
-      source: {
-        code: compactTemplate,
       },
     },
   },

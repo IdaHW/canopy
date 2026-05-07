@@ -8,6 +8,12 @@ import {
   ViewEncapsulation,
 } from '@angular/core';
 
+import {
+  LgGridColDirective,
+  LgGridContainerDirective,
+  LgGridRowDirective,
+} from '../grid';
+
 import { LgFooterLogoComponent } from './footer-logo/footer-logo.component';
 
 @Component({
@@ -20,6 +26,7 @@ import { LgFooterLogoComponent } from './footer-logo/footer-logo.component';
     class: 'lg-footer',
     role: 'contentinfo',
   },
+  imports: [ LgGridContainerDirective, LgGridRowDirective, LgGridColDirective ],
   standalone: true,
 })
 export class LgFooterComponent implements AfterContentInit {

@@ -1,16 +1,22 @@
-<ng-content select="lg-footer-footnote" />
-<div class="lg-footer__main">
-  <ng-content select="lg-footer-social" />
-  <div class="lg-footer__links">
-    <ng-content select="lg-footer-nav" />
-  </div>
+<div lgContainer>
+  <div lgRow>
+    <div lgCol="12">
+      <div class="lg-footer__wrapper">
+        <ng-content select="lg-footer-footnote" />
+        <ng-content select="lg-footer-social" />
+        <div class="lg-footer__links">
+          <ng-content select="lg-footer-nav" />
+        </div>
 
-  <div class="lg-footer__org">
-    <div class="lg-footer__logos-wrapper">
-      <ng-content select="lg-footer-logo" />
-      <ng-content select="lg-footer-stickers" />
+        <div class="lg-footer__org">
+          <div class="lg-footer__logos-wrapper">
+            <ng-content select="lg-footer-logo" />
+            <ng-content select="lg-footer-stickers" />
+          </div>
+
+          <ng-content select="lg-footer-copyright" />
+        </div>
+      </div>
     </div>
-
-    <ng-content select="lg-footer-copyright" />
   </div>
 </div>

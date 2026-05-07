@@ -44,7 +44,7 @@ import { LgIconComponent } from '../../icon';
 const createArgs = () => ({
   logo: 'legal-and-general-logo.svg',
   logoAlt: 'Company name',
-  copyright: '© Some Company plc 2019',
+  copyright: '© Some Company plc',
   card1: `Leverage agile frameworks to provide a robust synopsis for high level
     overviews. Iterative approaches to corporate strategy foster collaborative thinking to further the overall
     value proposition. Organically grow the holistic world view of disruptive innovation via workplace diversity
