@@ -28,6 +28,15 @@ import {
   LgCardNavigationTitleComponent,
   LgCardGroupComponent,
   LgCardToggableContentComponent,
+  LgCardContentInnerDataPointsComponent,
+} from '@legal-and-general/canopy';
+
+import {
+  LgDataPointComponent,
+  LgDataPointLabelComponent,
+  LgDataPointValueComponent,
+  LgDataPointSecondaryLabelComponent,
+  LgDataPointListComponent,
 } from '@legal-and-general/canopy';
 ```
 
@@ -62,7 +71,35 @@ import {
 
 ### Product Card
 
-Use `LgCardPrincipleDataPointComponent`, `LgCardPrincipleDataPointLabelComponent`, and `LgCardPrincipleDataPointValueComponent` to display data points inside a card.
+Use `LgDataPointComponent` with `variant="card-principle"` alongside `LgDataPointLabelComponent`, `LgDataPointValueComponent`, and optionally `LgDataPointSecondaryLabelComponent` to display a principle data point inside a product card.
+
+```html
+<lg-card>
+  <lg-card-content>
+    <div lgRow>
+      <div lgCol="12" lgColMd="6">
+        <lg-card-title headingLevel="4">
+          <a href="#">Card title</a>
+        </lg-card-title>
+        <lg-card-subtitle>Payroll Reference Number P23456</lg-card-subtitle>
+      </div>
+      <lg-data-point variant="card-principle" lgCol="12" lgColMd="6">
+        <lg-data-point-label [headingLevel]="5" [isBold]="true">
+          Last payment (after tax and deductions)
+        </lg-data-point-label>
+        <lg-data-point-value size="lg">
+          £230.20
+        </lg-data-point-value>
+        <lg-data-point-secondary-label>
+          as of 01 Jan 2020
+        </lg-data-point-secondary-label>
+      </lg-data-point>
+    </div>
+  </lg-card-content>
+</lg-card>
+```
+
+> **Note:** Do not use the deprecated `LgCardPrincipleDataPointComponent`, `LgCardPrincipleDataPointLabelComponent`, or `LgCardPrincipleDataPointValueComponent`. Use `LgDataPointComponent` with `variant="card-principle"` instead.
 
 ### Form Journey Card
 
