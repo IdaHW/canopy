@@ -73,7 +73,7 @@ import {
 | Input        | Type                            | Default     | Required | Description                                                                                     |
 |--------------|---------------------------------|-------------|----------|-------------------------------------------------------------------------------------------------|
 | `variant`    | `'default' \| 'card-principle'` | `'default'` | No       | Sets the visual variant of the data point.                                                      |
-| `isListItem` | `boolean`                       | `false`     | No       | Applies `role="listitem"` — set automatically when inside `lg-data-point-list`.                 |
+| `isListItem` | `boolean`                       | `false`     | No       | Applies `role="listitem"` — set automatically by `lg-data-point-list` when two or more data points are present. |
 
 ### `lg-data-point-label`
 
@@ -105,5 +105,5 @@ No inputs. Project text content directly into the element. Used for supplementar
 
 - A data point list supports **up to four** data points.
 - `headingLevel` is required on `lg-data-point-label` — always choose a level that reflects the correct document outline.
-- When placed inside `lg-data-point-list`, each data point is given a `listitem` role automatically.
+- When placed inside `lg-data-point-list` with two or more data points, `role="list"` is applied to the wrapper and `role="listitem"` is applied to each data point automatically. With only one data point, neither role is applied — a single-item list is not meaningful to screen reader users.
 - Use with the `lgSkeleton` directive for loading states (see the `skeleton` skill).
