@@ -16,7 +16,7 @@ import { PictogramName } from './pictogram-files.interface';
 
 type Name = PictogramName;
 
-export type PictogramSize = 'sm' | 'md' | 'lg' | 'xl' | 'xxl';
+export type PictogramSize = 'md' | 'lg' | 'xl';
 
 @Component({
   selector: 'lg-pictogram',
@@ -57,7 +57,7 @@ export class LgPictogramComponent {
     return this._hasFill;
   }
 
-  _size: PictogramSize = 'sm';
+  _size: PictogramSize = 'md';
   @Input()
   set size(size: PictogramSize) {
     if (this._size) {

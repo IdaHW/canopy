@@ -87,10 +87,8 @@ export class LgHeaderComponent implements AfterContentInit, OnDestroy {
     if (this.menuToggleButton && this.primaryNavEl) {
       const { nativeElement: menuToggleButtonEl } = this.menuToggleButton;
       const { nativeElement: primaryNavEl } = this.primaryNavEl;
-      const isNavOverlay = target.classList.contains('lg-primary-nav-overlay');
       const isOuterEl =
-        (!menuToggleButtonEl.contains(target) && !primaryNavEl.contains(target)) ||
-        isNavOverlay;
+        !menuToggleButtonEl.contains(target) && !primaryNavEl.contains(target);
 
       if (isOuterEl && this.showResponsiveMenu) {
         this.showResponsiveMenu = false;

@@ -29,11 +29,9 @@
 }
 
 $sizes: (
-  'sm': var(--content-pictogram-size-sm),
   'md': var(--content-pictogram-size-md),
   'lg': var(--content-pictogram-size-lg),
   'xl': var(--content-pictogram-size-xl),
-  'xxl': var(--content-pictogram-size-xxl),
 );
 
 @each $size, $value in $sizes {

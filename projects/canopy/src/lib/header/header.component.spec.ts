@@ -210,27 +210,6 @@ describe('HeaderComponent', () => {
             });
           });
         });
-
-        describe('when clicking on the overlay', () => {
-          beforeEach(() => {
-            document.body.style.overflow = 'hidden';
-            component.showResponsiveMenu = true;
-            fixture.detectChanges();
-            const el = document.querySelectorAll(
-              '.lg-primary-nav-overlay',
-            )[0] as HTMLElement;
-
-            el.click();
-          });
-
-          it('closes the menu', () => {
-            expect(component.showResponsiveMenu).toBe(false);
-          });
-
-          it('removes the overflow style fro mthe document body', () => {
-            expect(document.body.style.overflow).toBe('');
-          });
-        });
       });
     });
 

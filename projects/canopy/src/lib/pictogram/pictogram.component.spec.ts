@@ -114,21 +114,21 @@ describe('LgPictogramComponent', () => {
 
   describe('the size input', () => {
     describe('when not specified', () => {
-      it('should set the `sm` class modifier', () => {
-        expect(fixture.nativeElement.getAttribute('class')).toContain('lg-pictogram--sm');
+      it('should set the `md` class modifier', () => {
+        expect(fixture.nativeElement.getAttribute('class')).toContain('lg-pictogram--md');
       });
     });
 
     describe('when specified', () => {
       it('should set the correct class modifier', () => {
-        component.size = 'md';
+        component.size = 'lg';
         fixture.detectChanges();
 
         expect(fixture.nativeElement.getAttribute('class')).not.toContain(
-          'lg-pictogram--sm',
+          'lg-pictogram--md',
         );
 
-        expect(fixture.nativeElement.getAttribute('class')).toContain('lg-pictogram--md');
+        expect(fixture.nativeElement.getAttribute('class')).toContain('lg-pictogram--lg');
       });
     });
   });

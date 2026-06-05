@@ -40,8 +40,8 @@ and in the HTML
 
 ```html
 <lg-card-hero-img>
-  <lg-pictogram [name]="iconName" size="sm"></lg-pictogram>
-  <lg-pictogram [name]="iconName" size="sm" [hasFill]="false"></lg-pictogram>
+  <lg-pictogram [name]="iconName" size="md"></lg-pictogram>
+  <lg-pictogram [name]="iconName" size="md" [hasFill]="false"></lg-pictogram>
 </lg-card-hero-img>
 ```
 

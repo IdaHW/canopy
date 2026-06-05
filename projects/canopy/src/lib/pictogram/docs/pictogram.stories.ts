@@ -60,7 +60,7 @@ class SwatchPictogramComponent {
   protected readonly lgPictogramsArray = lgPictogramsArray;
 }
 
-const sizes = [ 'sm', 'md', 'lg', 'xl', 'xxl' ];
+const sizes = [ 'md', 'lg', 'xl' ];
 
 export default {
   title: 'Foundations/Pictogram/Catalog',
@@ -92,7 +92,7 @@ export default {
           summary: sizes,
         },
         defaultValue: {
-          summary: 'sm',
+          summary: 'md',
         },
       },
       control: {
@@ -126,7 +126,7 @@ export const StandardPictograms = {
   }),
   args: {
     hasFill: false,
-    size: 'sm',
+    size: 'md',
   },
   parameters: {
     docs: {

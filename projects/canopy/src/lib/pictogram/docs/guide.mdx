@@ -33,7 +33,7 @@ In your HTML:
 <lg-pictogram name="sun" [hasFill]="true"></lg-pictogram>
 
 <!-- with a size set -->
-<lg-pictogram name="sun" size="sm"></lg-pictogram>
+<lg-pictogram name="sun" size="md"></lg-pictogram>
 ```
 
 ### Sizes
@@ -42,11 +42,9 @@ Pictograms should be scaled according to the following sizes to ensure outlines 
 
 |                    | **rem** | **px** |
 |--------------------|---------|--------|
-| `--lg-pictogram-sm`  | 10      | 160    |
-| `--lg-pictogram-md`  | 12.5    | 200    |
-| `--lg-pictogram-lg`  | 15      | 240    |
-| `--lg-pictogram-xl`  | 17.5    | 280    |
-| `--lg-pictogram-xxl` | 20      | 320    |
+| `--content-pictogram-size-md` | 2 | 32 |
+| `--content-pictogram-size-lg` | 5 | 80 |
+| `--content-pictogram-size-xl` | 10 | 160 |
 
 ## Dos and Don'ts
 
@@ -69,7 +67,7 @@ Pictograms should be scaled according to the following sizes to ensure outlines 
 | Name   | Description          | Type            | Default     | Required |
 |--------|----------------------|-----------------|-------------|----------|
 | `name` | The name of the icon | `string`          | `undefined` | yes      |
-| `size` | The size of the icon | `sm,md,lg,xl,xxl` | `sm`        | no       |
+| `size` | The size of the icon | `md,lg,xl` | `md` | no |
 | `hasFill` | Applies a fill | `boolean` | `false` | no |
 
 

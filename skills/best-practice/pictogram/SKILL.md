@@ -34,7 +34,7 @@ import { LgPictogramComponent } from '@legal-and-general/canopy';
 <lg-pictogram name="sun" [hasFill]="true"></lg-pictogram>
 
 <!-- With a specific size -->
-<lg-pictogram name="sun" size="sm"></lg-pictogram>
+<lg-pictogram name="sun" size="md"></lg-pictogram>
 ```
 
 ---
@@ -44,16 +44,14 @@ import { LgPictogramComponent } from '@legal-and-general/canopy';
 Always use one of these predefined sizes to ensure outlines look crisp:
 
 | Size token | rem | px |
-|-----------|-----|----|
-| `--lg-pictogram-sm` | 10 | 160 |
-| `--lg-pictogram-md` | 12.5 | 200 |
-| `--lg-pictogram-lg` | 15 | 240 |
-| `--lg-pictogram-xl` | 17.5 | 280 |
-| `--lg-pictogram-xxl` | 20 | 320 |
+| --- | --- | --- |
+| `--content-pictogram-size-md` | 2 | 32 |
+| `--content-pictogram-size-lg` | 5 | 80 |
+| `--content-pictogram-size-xl` | 10 | 160 |
 
-The `size` input accepts: `sm`, `md`, `lg`, `xl`, `xxl`.
+The `size` input accepts: `md`, `lg`, `xl`.
 
-Pictograms should not be used below 160px.
+Pictograms should not be used below 32px.
 
 ---
 
@@ -72,9 +70,9 @@ To apply a custom fill colour, use the `colour` input with a CSS variable name:
 ## Inputs
 
 | Input | Type | Default | Required | Description |
-|-------|------|---------|----------|-------------|
+| --- | --- | --- | --- | --- |
 | `name` | `string` | `undefined` | Yes | The name of the pictogram. |
-| `size` | `PictogramSize` | `'sm'` | No | The size of the pictogram (see sizes table). |
+| `size` | `PictogramSize` | `'md'` | No | The size of the pictogram (see sizes table). |
 | `hasFill` | `boolean` | `false` | No | Applies the fill colour. Only use in self-service applications. |
 | `colour` | `string` | `undefined` | No | CSS variable for the pictogram fill colour, e.g. `var(--colour-green-400)`. |
 
@@ -84,12 +82,12 @@ To apply a custom fill colour, use the `colour` input with a CSS variable name:
 
 ### Do
 
-1. **Do** scale pictograms according to the sizing chart — minimum 160px.
+1. **Do** scale pictograms according to the sizing chart — minimum 32px.
 2. **Do** use pictograms to support messages, empty states, or end-of-journey screens.
 3. **Do** enable `[hasFill]="true"` when using a pictogram in a self-service application to make the fill visible on neutral backgrounds.
 
 ### Don't
 
 1. **Don't** use a pictogram in place of a UI icon.
-2. **Don't** use pictograms below 160px — use UI icons instead.
+2. **Don't** use pictograms below 32px — use UI icons instead.
 3. **Don't** set `[hasFill]="true"` in highly-branded scenarios such as the Dotcom CMS.
