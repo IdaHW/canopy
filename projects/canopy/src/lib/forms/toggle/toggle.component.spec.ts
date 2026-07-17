@@ -78,7 +78,7 @@ class TestToggleComponent {
 @Component({
   template: `
     <form (ngSubmit)="login()" [formGroup]="form" #testForm="ngForm">
-      <lg-switch
+      <lg-filter-checkbox
         formControlName="umbrella"
         [value]="true"
         (change)="onChange()"
@@ -90,7 +90,7 @@ class TestToggleComponent {
             You must agree to the terms and conditions
           </lg-validation>
         }
-      </lg-switch>
+      </lg-filter-checkbox>
     </form>
   `,
   imports: [ FormsModule, ReactiveFormsModule, LgToggleComponent, LgValidationComponent ],
@@ -191,19 +191,19 @@ describe('LgToggleComponent', () => {
     component.variant = 'checkbox';
 
     expect(
-      inputLabelElement.nativeElement.classList.contains('lg-toggle__label--switch'),
+      inputLabelElement.nativeElement.classList.contains('lg-toggle__label--filter'),
     ).toBe(false);
 
-    component.variant = 'switch';
+    component.variant = 'filter';
     fixture.detectChanges();
 
     expect(
-      inputLabelElement.nativeElement.classList.contains('lg-toggle__label--switch'),
+      inputLabelElement.nativeElement.classList.contains('lg-toggle__label--filter'),
     ).toBe(true);
   });
 
   it('adds the checkbox icon based on the variant', () => {
-    component.variant = 'switch';
+    component.variant = 'filter';
 
     expect(fixture.debugElement.query(By.css('.lg-toggle__checkbox'))).toBeNull();
 
@@ -216,7 +216,7 @@ describe('LgToggleComponent', () => {
   });
 
   it('adds the checkbox size based on the variant', () => {
-    component.variant = 'switch';
+    component.variant = 'filter';
 
     expect(fixture.debugElement.query(By.css('.lg-toggle__checkbox--sm'))).toBeNull();
 
@@ -365,16 +365,12 @@ describe('LgToggleComponent selector variant', () => {
   }));
 
   it('sets the correct variant based on the selector', () => {
-    expect(toggleInstance.variant).toBe('switch');
+    expect(toggleInstance.variant).toBe('filter');
   });
 
   it('sets the correct modifier class based on the variant', () => {
     expect(
       inputLabelElement.nativeElement.classList.contains('lg-toggle__label--filter'),
-    ).toBe(false);
-
-    expect(
-      inputLabelElement.nativeElement.classList.contains('lg-toggle__label--switch'),
     ).toBe(true);
   });
 });
