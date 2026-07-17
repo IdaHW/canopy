@@ -202,13 +202,6 @@ class FormGroupChildComponent implements OnInit {
         }
       </lg-toggle>
 
-      <lg-toggle formControlName="switch" [value]="true" variant="switch">
-        Switch
-        @if (isControlInvalid(switch, validationForm) && switch.hasError('required')) {
-          <lg-validation> You must toggle the switch </lg-validation>
-        }
-      </lg-toggle>
-
       <lg-date-field formControlName="date">
         Date of birth
         @if (isControlInvalid(date, validationForm)) {
@@ -320,10 +313,6 @@ class ReactiveFormComponent {
     return this.form.get('checkbox');
   }
 
-  get switch() {
-    return this.form.get('switch');
-  }
-
   @Output() formSubmit: EventEmitter<void> = new EventEmitter();
 
   constructor() {
@@ -334,7 +323,6 @@ class ReactiveFormComponent {
       segment: [ '', [ Validators.required, invalidValidator() ] ],
       colors: this.fb.control([], [ Validators.required ]),
       checkbox: [ '', [ Validators.requiredTrue ] ],
-      switch: [ '', [ Validators.requiredTrue ] ],
       sortCode: [ '', [ Validators.required ] ],
       date: [ '', [ Validators.required, pastDateValidator() ] ],
       innerChildFormGroup: this.fb.group({

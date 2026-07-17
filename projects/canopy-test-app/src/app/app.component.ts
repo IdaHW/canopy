@@ -362,7 +362,6 @@ export class AppComponent {
       colors: this.fb.control([]),
       filters: this.fb.control([]),
       checkbox: [ '' ],
-      switch: [ '' ],
       segment: [ '' ],
       date: [ '' ],
       sortCode: [ '' ],

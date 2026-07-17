@@ -160,6 +160,8 @@ The agent reads the `guide.mdx` documentation, stories, and documentation images
 | **Deprecated/Removed** | | |
 | `canopy-carousel` | Deprecation notice for `LgCarouselComponent` | Deprecated |
 | `canopy-brand-icon` | Removal notice for `LgBrandIconComponent` | Removed |
+| `canopy-forms-switch` | Removal notice for `lg-switch` and `variant="switch"` migration paths | Removed |
+| `canopy-quick-action` | Removal notice for `lg-quick-action` and replacements using button/link patterns | Removed |
 | **Styles** | | |
 | `canopy-link` | Anchor styles, external links, icons in links, colour modes | — |
 | `canopy-utils` | `lg-visually-hidden`, `lg-unstyled-link` CSS utility classes | — |

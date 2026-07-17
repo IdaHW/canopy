@@ -51,6 +51,12 @@ Button colours are inherited from the parent colour mode — never set button co
 
 ## Anatomy variants
 
+**Label-only button** - the default text-only button. Labels should be concise, action-oriented, and specific about the outcome.
+
+```html
+<button lg-button type="button">Save changes</button>
+```
+
 **Back icon button** — navigation back; use `[backIcon]="true"`. For non-link priorities, the arrow-left icon is fixed and you cannot substitute a custom icon. For `priority="link"`, a projected `<lg-icon>` is displayed instead of the fixed arrow-left, allowing a custom icon on the left.
 ```html
 <!-- Non-link: fixed arrow-left icon, no custom icon permitted -->
@@ -116,7 +122,9 @@ Group two or more related buttons on a single line:
 
 ## Button Toggle
 
-Use `lgButtonToggle` to show/hide content (e.g. a filter panel). Must be on a `<button>` element.
+Use `lgButtonToggle` to show/hide content (e.g. a filter panel). Use it only as part of a pattern, and only on a `<button>` element.
+
+Using `lgButtonToggle` on non-button elements (for example `<a>` or `<div>`) is not supported.
 
 ```html
 <button lg-button lgButtonToggle type="button" priority="secondary">
@@ -124,6 +132,8 @@ Use `lgButtonToggle` to show/hide content (e.g. a filter panel). Must be on a `<
   <lg-icon name="chevron-down" />
 </button>
 ```
+
+When using the directive outside `LgFilterContainerComponent`, set `id` and `ariaControls` on the toggle directive and subscribe to `toggleActive` to drive panel state.
 
 ---
 
@@ -154,11 +164,12 @@ Use `lgButtonToggle` to show/hide content (e.g. a filter panel). Must be on a `<
 ### Don't
 
 1. **Don't** place more than one `primary` button in a single view.
-2. **Don't** use vague labels like "Click here", "Submit", or "Go".
-3. **Don't** let button labels wrap onto multiple lines.
-4. **Don't** centre- or right-align buttons unless the layout specifically requires it — left-align by default.
-5. **Don't** use `fullWidth` at `lg` breakpoints or wider.
-6. **Don't** use a button for navigation when a link is semantically more appropriate.
+2. **Don't** use too many buttons in close proximity.
+3. **Don't** use vague or generic labels like "Click here", "Submit", or "Go".
+4. **Don't** let button labels wrap onto multiple lines.
+5. **Don't** centre- or right-align buttons unless the layout specifically requires it — left-align by default.
+6. **Don't** use `fullWidth` at `lg` breakpoints or wider.
+7. **Don't** use a button for navigation when a link is semantically more appropriate.
 
 ---
 
