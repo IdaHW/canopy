@@ -19,7 +19,7 @@ import {
   LgGridContainerDirective,
   LgGridRowDirective,
 } from '../../grid';
-import { LgQuickActionComponent } from '../../quick-action';
+import { LgButtonComponent } from '../../button';
 import { LgIconComponent } from '../../icon';
 
 interface TableStoryItem {
@@ -204,8 +204,8 @@ const withLongCopyTableTemplate = `
                 emo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut
                 fugit, sed quia consequuntur.
               </p>
-              <button lg-quick-action>
-                <lg-icon name="information-filled"></lg-icon>
+              <button lg-button type="button" priority="link">
+                <lg-icon name="information-filled" />
                 More information
               </button>
             </td>
@@ -231,8 +231,8 @@ const withLongCopyTableTemplate = `
                 tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo
                 minus id quod.
               </p>
-              <button lg-quick-action>
-                <lg-icon name="chevron-right-circle"></lg-icon>
+              <button lg-button type="button" priority="link">
+                <lg-icon name="chevron-right-circle" />
                 Contact us
               </button>
             </td>
@@ -276,7 +276,7 @@ const withLongCopyTableTemplate = `
     LgGridContainerDirective,
     LgGridRowDirective,
     LgGridColDirective,
-    LgQuickActionComponent,
+    LgButtonComponent,
     LgIconComponent,
   ],
 })

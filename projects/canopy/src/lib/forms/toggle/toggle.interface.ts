@@ -1,3 +1,3 @@
-export type ToggleVariant = 'checkbox' | 'switch' | 'filter';
+export type ToggleVariant = 'checkbox' | 'filter';
 
 export type CheckboxSize = 'sm' | 'lg';

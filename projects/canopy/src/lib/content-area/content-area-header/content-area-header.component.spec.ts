@@ -87,7 +87,7 @@ describe('LgContentAreaHeaderComponent', () => {
     })
     class TestSelectiveProjectionComponent {}
 
-    it('should only project lg-content-area-title and anchor elements', () => {
+    it('should only project lg-content-area-title, anchor elements, and link-priority buttons', () => {
       const testFixture = TestBed.createComponent(TestSelectiveProjectionComponent);
 
       testFixture.detectChanges();
@@ -128,6 +128,61 @@ describe('LgContentAreaHeaderComponent', () => {
       expect(anchorElement).toBeTruthy();
       expect(anchorElement.textContent).toContain('Link');
       expect(titleElement).toBeTruthy();
+    });
+
+    @Component({
+      template: `
+        <lg-content-area-header>
+          <lg-content-area-title [headingLevel]="2">Title</lg-content-area-title>
+          <button lg-button type="button" priority="link">Link Priority</button>
+        </lg-content-area-header>
+      `,
+      standalone: true,
+      imports: [ LgContentAreaHeaderComponent, LgContentAreaTitleComponent ],
+    })
+    class TestLinkPriorityButtonProjectionComponent {}
+
+    it('should project link-priority buttons', () => {
+      const testFixture = TestBed.createComponent(
+        TestLinkPriorityButtonProjectionComponent,
+      );
+
+      testFixture.detectChanges();
+
+      const headerElement = testFixture.nativeElement.querySelector(
+        'lg-content-area-header',
+      );
+      const buttonElement = headerElement.querySelector('button[priority="link"]');
+
+      expect(buttonElement).toBeTruthy();
+      expect(buttonElement.textContent).toContain('Link Priority');
+    });
+
+    @Component({
+      template: `
+        <lg-content-area-header>
+          <lg-content-area-title [headingLevel]="2">Title</lg-content-area-title>
+          <button lg-button type="button" priority="primary">Primary Priority</button>
+        </lg-content-area-header>
+      `,
+      standalone: true,
+      imports: [ LgContentAreaHeaderComponent, LgContentAreaTitleComponent ],
+    })
+    class TestNonLinkPriorityButtonProjectionComponent {}
+
+    it('should not project non-link-priority buttons', () => {
+      const testFixture = TestBed.createComponent(
+        TestNonLinkPriorityButtonProjectionComponent,
+      );
+
+      testFixture.detectChanges();
+
+      const headerElement = testFixture.nativeElement.querySelector(
+        'lg-content-area-header',
+      );
+      const buttonElement = headerElement.querySelector('button[priority="primary"]');
+
+      expect(buttonElement).toBeNull();
     });
   });
 });

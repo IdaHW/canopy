@@ -107,6 +107,6 @@ To remove Canopy link styles from a custom component, use the `lg-unstyled-link`
 
 ### Don't
 
-1. **Don't** use links for primary actions — use a button or quick action instead.
+1. **Don't** use links for primary actions — use a button instead.
 2. **Don't** use generic phrases like "click here" or "read more" without context.
 3. **Don't** use unnecessarily long link text — keep it concise without sacrificing clarity.

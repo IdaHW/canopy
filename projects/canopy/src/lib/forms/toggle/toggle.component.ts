@@ -24,19 +24,10 @@ import { LgFocusDirective } from '../../focus';
 import type { ToggleVariant } from './toggle.interface';
 import { CheckboxSize } from './toggle.interface';
 
-/**
- * @deprecated For lg-switch, use inline radio group or segment instead.  Will be removed in a future major release (date/version TBC).
- * This migration applies only to the `lg-switch` selector, not to
- * `lg-toggle`, `lg-checkbox`, or `lg-filter-checkbox`.
- */
 @Component({
-  selector: 'lg-toggle, lg-checkbox, lg-switch, lg-filter-checkbox',
+  selector: 'lg-toggle, lg-checkbox, lg-filter-checkbox',
   templateUrl: './toggle.component.html',
-  styleUrls: [
-    './toggle.component.scss',
-    './toggle--switch.component.scss',
-    './toggle--filter.component.scss',
-  ],
+  styleUrls: [ './toggle.component.scss', './toggle--filter.component.scss' ],
   encapsulation: ViewEncapsulation.None,
   imports: [ LgFocusDirective, NgClass, LgIconComponent ],
 })

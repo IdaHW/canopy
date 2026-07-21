@@ -72,6 +72,22 @@ import {
 
 ---
 
+## Long Copy Actions
+
+When using tables with long copy, place contextual actions inside the cell using a link-priority button.
+
+```html
+<td lg-table-cell [showLabel]="false" [stack]="true">
+  <p>Additional context</p>
+  <button lg-button type="button" priority="link">
+    <lg-icon name="information-filled" />
+    Find out more
+  </button>
+</td>
+```
+
+---
+
 ## LgTableComponent Inputs
 
 | Input | Type | Default | Description |
