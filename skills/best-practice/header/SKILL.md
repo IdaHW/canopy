@@ -60,15 +60,6 @@ Use two `lg-header-logo` components side by side for a co-branded header:
 </header>
 ```
 
-The width of each logo can be customised via CSS variables:
-
-```css
---header-logo-width
---header-logo-width-lg
---header-second-logo-width
---header-second-logo-width-lg
-```
-
 ---
 
 ## With Primary Navigation and Account Menu
