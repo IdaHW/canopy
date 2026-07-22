@@ -60,10 +60,14 @@ Use two `lg-header-logo` components side by side for a co-branded header:
 </header>
 ```
 
-Legacy `--header-*` logo width variables are no longer used by the header/logo styles.
+The width of each logo can be customised via CSS variables:
 
-Use the default Canopy header/logo sizing behaviour and provide appropriately sized
-logo assets for your brand.
+```css
+--header-logo-width
+--header-logo-width-lg
+--header-second-logo-width
+--header-second-logo-width-lg
+```
 
 ---
 
@@ -188,6 +192,14 @@ Combine two `lg-header-logo` elements with the full navigation structure:
 |--------|------|-------------|
 | `menuToggled` | `EventEmitter<boolean>` | Emitted when the mobile menu toggle button is clicked. |
 
+#### Content slots
+
+| Selector | Description |
+|----------|-------------|
+| `lg-header-logo` | Projects one or more logo elements into the logos wrapper at the start of the header bar. |
+| `[lgMenuBadge]` | Projects content (typically `lg-notification-badge`) into the burger toggle button; hidden when the menu is open. |
+| _(default)_ | Projects all other content (e.g. `lg-primary-nav`, `lg-account-menu`) into the main header wrapper. |
+
 ### `LgHeaderLogoComponent`
 
 | Input | Type | Default | Required | Description |
@@ -206,7 +218,7 @@ Combine two `lg-header-logo` elements with the full navigation structure:
 
 | Input | Type | Default | Required | Description |
 |-------|------|---------|----------|-------------|
-| `alignRight` | `boolean` | `true` | No | Aligns the item to the right-hand side at `lg` breakpoints. |
+| `alignRight` | `boolean` | `false` | No | Aligns the item to the right-hand side at `lg` breakpoints. |
 
 | Output | Type | Description |
 |--------|------|-------------|
@@ -230,14 +242,15 @@ Combine two `lg-header-logo` elements with the full navigation structure:
 | Output | Type | Description |
 |--------|------|-------------|
 | `clicked` | `EventEmitter<Event>` | Emitted when a click event bubbles up to the list item. |
+| `tabbedOut` | `EventEmitter<KeyboardEvent>` | Emitted when the tab key bubbles up to the list item. |
 
 ### `LgNotificationBadgeComponent`
 
 | Input | Type | Default | Required | Description |
 |-------|------|---------|----------|-------------|
-| `count` | `number` | — | Yes (count) | The value to display in the badge when `variant` is `'count'`. |
-| `accessText` | `string` | — | Yes | Accessible text for assistive technologies. |
- | `variant` | `'count' \| 'dot'` | `'count'` | No | Badge variant. Use `'dot'` for an indeterminate indicator instead of a count. |
+| `count` | `number` | `undefined` | No | The numeric value to display in the badge when `variant` is `'count'`. |
+| `accessText` | `string` | `undefined` | No | Accessible text for assistive technologies. |
+| `variant` | `'count' \| 'dot'` | `'count'` | No | Badge variant. Use `'dot'` for an indeterminate indicator instead of a count. |
 
 Apply `lgMenuBadge` to the `lg-notification-badge` element to display it on the mobile menu toggle button.
 
