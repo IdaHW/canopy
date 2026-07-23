@@ -88,6 +88,45 @@ const navigationTemplate = `
 </header>
 `;
 
+const navigationWithoutAccountMenuTemplate = `
+<header lg-header [lgColour]="colour" [lgColourTheme]="theme">
+  <lg-header-logo [src]="logo" [alt]="logoAlt" [href]="logoHref"></lg-header-logo>
+  <lg-notification-badge lgMenuBadge variant="dot" accessText="You have unread messages"></lg-notification-badge>
+
+  <lg-primary-nav>
+    <lg-primary-nav-list-item>
+      <a href="" [isActive]="true" lgPrimaryNavItem>Link 1</a>
+    </lg-primary-nav-list-item>
+    <lg-primary-nav-list-item>
+      <a href="" lgPrimaryNavItem>
+        Link 2
+        <lg-notification-badge count="3" accessText="You have 3 unread messages"></lg-notification-badge>
+      </a>
+    </lg-primary-nav-list-item>
+    <lg-primary-nav-list-item>
+      <a href="" lgPrimaryNavItem>Link 3</a>
+    </lg-primary-nav-list-item>
+
+    <a lgPrimaryNavMobileItem href="">
+      <lg-link-menu-item>
+        <lg-link-menu-item-text>Link 1</lg-link-menu-item-text>
+      </lg-link-menu-item>
+    </a>
+    <a lgPrimaryNavMobileItem href="">
+      <lg-link-menu-item>
+        <lg-link-menu-item-text>Link 2</lg-link-menu-item-text>
+        <lg-notification-badge count="3" accessText="You have 3 unread messages"></lg-notification-badge>
+      </lg-link-menu-item>
+    </a>
+    <a lgPrimaryNavMobileItem href="">
+      <lg-link-menu-item>
+        <lg-link-menu-item-text>Link 3</lg-link-menu-item-text>
+      </lg-link-menu-item>
+    </a>
+  </lg-primary-nav>
+</header>
+`;
+
 @Component({
   selector: 'lg-navigation',
   template: navigationTemplate,
@@ -105,13 +144,36 @@ const navigationTemplate = `
     LgAccountMenuItemDirective,
     LgAccountMenuItemLabelComponent,
     LgAccountMenuMobileItemDirective,
-    LgAccountMenuMobileItemDirective,
     LgIconComponent,
     LgLinkMenuItemComponent,
     LgLinkMenuItemTextComponent,
   ],
 })
 class PrimaryNavigationComponent {
+  @Input() logo: string;
+  @Input() logoAlt: string;
+  @Input() logoHref: string;
+  @Input() colour!: string;
+  @Input() theme!: string;
+}
+
+@Component({
+  selector: 'lg-navigation-no-account-menu',
+  template: navigationWithoutAccountMenuTemplate,
+  imports: [
+    LgHeaderComponent,
+    LgHeaderLogoComponent,
+    LgPrimaryNavComponent,
+    LgPrimaryNavListItemComponent,
+    LgPrimaryNavItemDirective,
+    LgPrimaryNavMobileItemDirective,
+    LgNotificationBadgeComponent,
+    LgColourDirective,
+    LgLinkMenuItemComponent,
+    LgLinkMenuItemTextComponent,
+  ],
+})
+class PrimaryNavigationNoAccountMenuComponent {
   @Input() logo: string;
   @Input() logoAlt: string;
   @Input() logoHref: string;
@@ -227,6 +289,7 @@ export default {
     moduleMetadata({
       imports: [
         PrimaryNavigationComponent,
+        PrimaryNavigationNoAccountMenuComponent,
         CoBrandedNavigationComponent,
         LgHeaderComponent,
         LgHeaderLogoComponent,
@@ -432,6 +495,46 @@ export const NavHeader = {
     docs: {
       source: {
         code: navigationTemplate,
+      },
+    },
+  },
+};
+
+export const NavHeaderWithoutAccountMenu = {
+  name: 'Standard without account menu',
+  render: (args: LgHeaderComponent) => ({
+    props: args,
+    template:
+      '<lg-navigation-no-account-menu [logo]="logo" [logoAlt]="logoAlt" [logoHref]="logoHref" [colour]="colour" [theme]="theme"></lg-navigation-no-account-menu>',
+  }),
+  args: {
+    logo: 'legal-and-general-logo.svg',
+    logoAlt: 'Company name',
+    logoHref: 'https://storybook.js.org',
+    colour: 'blue',
+    theme: 'neutral',
+  },
+  argTypes: {
+    secondaryLogo: {
+      table: {
+        disable: true,
+      },
+    },
+    secondaryLogoAlt: {
+      table: {
+        disable: true,
+      },
+    },
+    secondaryLogoHref: {
+      table: {
+        disable: true,
+      },
+    },
+  },
+  parameters: {
+    docs: {
+      source: {
+        code: navigationWithoutAccountMenuTemplate,
       },
     },
   },

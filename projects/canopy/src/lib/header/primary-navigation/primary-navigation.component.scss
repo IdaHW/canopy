@@ -56,7 +56,6 @@ $primary-nav-border-bottom-height: var(--interactive-underline-border-width);
 }
 
 .lg-primary-nav-list {
-  background: var(--colour-greyscale-0);
   align-items: flex-start;
   display: flex;
   flex-direction: column;
@@ -92,7 +91,6 @@ button.lg-primary-nav-item {
   /* stylelint-disable no-duplicate-selectors */
   & {
     appearance: none;
-    background: var(--colour-greyscale-0);
     cursor: pointer;
     margin-bottom: 0;
   }

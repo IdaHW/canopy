@@ -2,8 +2,10 @@ import {
   ChangeDetectionStrategy,
   ChangeDetectorRef,
   Component,
+  ContentChildren,
   HostBinding,
   Input,
+  QueryList,
   ViewEncapsulation,
   inject,
 } from '@angular/core';
@@ -11,6 +13,7 @@ import {
 import { LgHideAtDirective } from '../../hide-at';
 import { LgLinkMenuComponent } from '../../link-menu';
 import { LgShowAtDirective } from '../../show-at';
+import { LgAccountMenuMobileItemDirective } from '../account-menu/account-menu-mobile-item.directive';
 
 @Component({
   selector: 'lg-primary-nav',
@@ -30,6 +33,9 @@ import { LgShowAtDirective } from '../../show-at';
 export class LgPrimaryNavComponent {
   private cdr = inject(ChangeDetectorRef);
   private _showResponsiveMenu = false;
+
+  @ContentChildren(LgAccountMenuMobileItemDirective, { descendants: true })
+  accountMenuMobileItems: QueryList<LgAccountMenuMobileItemDirective>;
 
   @Input() set showResponsiveMenu(show: boolean) {
     this._showResponsiveMenu = show;

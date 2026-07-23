@@ -42,14 +42,90 @@
 }
 
 .primary-nav-toggle {
+  color: var(--header-button-rest-colour) !important;
+  border: 0;
+  background: none;
+  appearance: none;
+  cursor: pointer;
+  padding: var(--header-button-padding-y) var(--header-button-padding-small-x) !important;
   position: relative;
   transition: background-color var(--animation-duration) var(--animation-fn);
+
+  &::after {
+    content: '';
+    position: absolute;
+    left: var(--header-button-padding-small-x);
+    right: 0;
+    bottom: 0;
+    height: var(--interactive-underline-border-width);
+    width: 0;
+    background: var(--header-button-hover-hover-indicator);
+    border-radius: var(--border-radius-1-lg);
+    transition: width var(--animation-duration) var(--animation-fn);
+  }
+
+  &:hover {
+    color: var(--header-button-hover-colour) !important;
+
+    &::after {
+      width: calc(100% - (var(--header-button-padding-small-x) * 2));
+    }
+  }
+
+  &.lg-account-menu-item--active,
+  &.lg-account-menu-item--active:visited,
+  &.lg-account-menu-item--active:hover,
+  &.lg-account-menu-item--active:visited:hover {
+    border-radius: var(--header-button-border-radius) !important;
+    background: var(--header-button-active-background-colour);
+    color: var(--header-button-active-colour) !important;
+
+    &:focus-visible,
+    &:hover:focus-visible {
+      color: var(--header-button-active-colour) !important;
+      background: var(--header-button-active-background-colour);
+    }
+
+    &:hover::after {
+      content: none;
+    }
+  }
+
+  &:focus-visible:hover,
+  &:focus-visible {
+    border-radius: var(--header-button-border-radius) !important;
+    box-shadow: inset 0 0 0 var(--header-button-border-width-focus)
+      var(--header-button-focus-colour) !important;
+    background: var(--header-button-focus-background-colour);
+    color: var(--header-button-focus-colour) !important;
+    outline: 0 !important;
+
+    &:hover::after {
+      content: none;
+    }
+  }
 
   * {
     pointer-events: none;
   }
 
+  .lg-icon {
+    order: -1;
+    height: var(--button-icon-width);
+    width: var(--button-icon-width);
+    margin-right: 0 !important;
+
+    @include mixins.lg-breakpoint(lg) {
+      margin-bottom: var(--space-1);
+    }
+  }
+
   lg-notification-badge {
+    font-size: var(--font-size-0-8);
+    background: var(--notification-badge-background-colour);
+    height: var(--notification-badge-height);
+    margin-left: 0;
+    width: var(--notification-badge-min-width);
     position: absolute;
     top: 0.25rem;
     right: 0.25rem;
